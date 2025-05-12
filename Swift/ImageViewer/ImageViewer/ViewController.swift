@@ -4,6 +4,7 @@
 //
 //  Created by 최원일 on 5/1/25.
 //
+// next, before 버튼 있는 사진첩
 
 import UIKit
 
