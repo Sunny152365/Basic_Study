@@ -11,6 +11,7 @@ import WebKit
 class ViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet var txtUrl: UITextField!
+    // 이부분 오류 현상 나오고 있음(연결이 제대로 되지 않는 현상)
     @IBOutlet var myWebView: WKWebView!
     @IBOutlet var myActivityIndicator: UIActivityIndicatorView!
     
