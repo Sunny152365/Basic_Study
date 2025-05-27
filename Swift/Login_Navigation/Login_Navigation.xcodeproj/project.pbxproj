@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		576E852D2DE6055400506D05 /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 576E852C2DE6055400506D05 /* NaverThirdPartyLogin */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		1F756F6F2DE5755A000A94D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576E852D2DE6055400506D05 /* NaverThirdPartyLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,7 @@
 			);
 			name = Login_Navigation;
 			packageProductDependencies = (
+				576E852C2DE6055400506D05 /* NaverThirdPartyLogin */,
 			);
 			productName = Login_Navigation;
 			productReference = 1F756F582DE57559000A94D9 /* Login_Navigation.app */;
@@ -208,6 +214,9 @@
 			);
 			mainGroup = 1F756F4F2DE57559000A94D9;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				57E89D8A2DE6019100540002 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1F756F592DE57559000A94D9 /* Products */;
 			projectDirPath = "";
@@ -563,6 +572,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57E89D8A2DE6019100540002 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		576E852C2DE6055400506D05 /* NaverThirdPartyLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57E89D8A2DE6019100540002 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
+			productName = NaverThirdPartyLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1F756F502DE57559000A94D9 /* Project object */;
 }
