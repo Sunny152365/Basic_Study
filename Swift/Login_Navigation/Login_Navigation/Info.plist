@@ -2,49 +2,55 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <!-- 기존 URL Schemes에 카카오 추가 -->
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>kakaod369a8ac1b2e52f2eac71adbaaa78e82</string>
-                <string>naverlogin</string>
-            </array>
-            <key>CFBundleURLName</key>
-            <string></string>
-        </dict>
-    </array>
-
-    <!-- 카카오 로그인용 Scheme 허용 -->
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>kakaokompassauth</string>
-        <string>kakaolink</string>
-    </array>
-
-    <!-- 카카오 네이티브 앱 키 (선택 사항: 코드에서 불러올 경우 사용) -->
-    <key>KAKAO_NATIVE_APP_KEY</key>
-    <string>d369a8ac1b2e52f2eac71adbaaa78e82</string>
-
-    <!-- 나머지 기존 설정 유지 -->
-    <key>UIApplicationSceneManifest</key>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakaod369a8ac1b2e52f2eac71adbaaa78e82</string>
+				<string>naverlogin</string>
+			</array>
+			<key>CFBundleURLName</key>
+			<string></string>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
+	</array>
+	<key>KAKAO_NATIVE_APP_KEY</key>
+	<string>d369a8ac1b2e52f2eac71adbaaa78e82</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+					<key>UISceneStoryboardFile</key>
+					<string>Main</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+    <key>NSAppTransportSecurity</key>
     <dict>
-        <key>UIApplicationSupportsMultipleScenes</key>
-        <false/>
-        <key>UISceneConfigurations</key>
+        <key>NSExceptionDomains</key>
         <dict>
-            <key>UIWindowSceneSessionRoleApplication</key>
-            <array>
-                <dict>
-                    <key>UISceneConfigurationName</key>
-                    <string>Default Configuration</string>
-                    <key>UISceneDelegateClassName</key>
-                    <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-                    <key>UISceneStoryboardFile</key>
-                    <string>Main</string>
-                </dict>
-            </array>
+            <key>192.168.0.16</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
         </dict>
     </dict>
 </dict>

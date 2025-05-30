@@ -271,6 +271,8 @@
                     <connections>
                         <outlet property="appleLoginContainerView" destination="yOJ-YB-EUj" id="72f-Iv-iyO"/>
                         <outlet property="idTextField" destination="OU5-E1-fjP" id="Php-oN-OCR"/>
+                        <outlet property="kakaoLoginButton" destination="NMu-Es-1g2" id="Isg-wA-c9p"/>
+                        <outlet property="naverLoginButton" destination="Mdj-Z8-hFG" id="yHt-s7-T9C"/>
                         <outlet property="pwTextField" destination="D9a-wt-jNh" id="fD8-Zr-b4G"/>
                         <segue destination="svR-S8-h8W" kind="show" id="UgO-L2-aK2"/>
                     </connections>
@@ -443,16 +445,16 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
