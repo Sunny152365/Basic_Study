@@ -89,3 +89,5 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 // 대리자, 누군가 해야 할 일을 대신 해주는 역할
 // 특정 객체와 상호 작용할 때 메시지를 넘기면 그 메시지에 대한 책임은 델리게이트로 위임
 // 사용자가 객체를 터치했을때 해야 할 일을 델리게이트 메서드에 구현하고 해당 객체가 터치되었을 때 델리게이트가 호출되어 위임받은 일을 하게 되는 것
+
+// 상속이라는 다른 개념 iOS 는 상속이 한 번 밖에 안됨
