@@ -5,6 +5,8 @@
 //  Created by 최원일 on 5/21/25.
 //
 
+// 터치랑 같이 사용해야함
+
 import UIKit
 
 var images = ["01.png","02.png","03.png","04.png","05.png","06.png"]
