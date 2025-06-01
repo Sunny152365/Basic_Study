@@ -3,7 +3,7 @@
 //  Alert_Clock
 //
 //  Created by 최원일 on 5/14/25.
-//
+// UIKit = Storyboard
 
 import UIKit
 
