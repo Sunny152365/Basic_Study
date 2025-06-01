@@ -4,6 +4,7 @@
 //
 //  Created by 최원일 on 5/10/25.
 //
+// 단순 검색 기능
 
 import UIKit
 
