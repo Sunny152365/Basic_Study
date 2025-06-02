@@ -8,7 +8,6 @@
 import UIKit
 import NaverThirdPartyLogin
 import KakaoSDKCommon
-import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Firebase 기능 활성화 전역 초기화 코드
-        FirebaseApp.configure()
         // Override point for customization after application launch.
         
         // 네이버 로그인 초기 설정
