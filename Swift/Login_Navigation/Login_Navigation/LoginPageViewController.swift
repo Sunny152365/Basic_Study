@@ -19,12 +19,13 @@ struct LoginResponse: Decodable {
 class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
 
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-
+    var kakaoImageView: UIImageView?
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var pwTextField: UITextField!
     @IBOutlet weak var appleLoginContainerView: UIView!
-    @IBOutlet weak var kakaoLoginButton: UIButton!
-    @IBOutlet weak var naverLoginButton: UIButton!
+    @IBOutlet weak var kakaoLoginView: UIView!
+    @IBOutlet weak var naverLoginView: UIView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,14 +37,43 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         super.viewDidLoad()
         setupAppleLoginButton()
         naverLoginInstance?.delegate = self
+        // 인앱 브라우저에서 로그인 시도
         naverLoginInstance?.isInAppOauthEnable = true
+        
+        // ✅ 네이버 로그인 이미지 설정
+        let naverImageView = UIImageView(image: UIImage(named: "naver_login"))
+        naverImageView.contentMode = .scaleAspectFit
+        naverImageView.frame = naverLoginView.bounds
+        naverImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        naverImageView.clipsToBounds = true
+        naverLoginView.addSubview(naverImageView)
 
-        kakaoLoginButton.setImage(UIImage(named: "kakao_login"), for: .normal)
-        naverLoginButton.setImage(UIImage(named: "naver_login"), for: .normal)
-
-        kakaoLoginButton.imageView?.contentMode = .scaleAspectFit
-        naverLoginButton.imageView?.contentMode = .scaleAspectFit
+        // ✅ naver 탭 제스처 추가
+        let naverTapGesture = UITapGestureRecognizer(target: self, action: #selector(naverLoginButtonTapped))
+        naverLoginView.addGestureRecognizer(naverTapGesture)
+        naverLoginView.isUserInteractionEnabled = true
+        // ✅ kakao 탭 제스처 추가
+        let kakaoTapGesture = UITapGestureRecognizer(target: self, action: #selector(kakaoLoginButtonTapped))
+        kakaoLoginView.addGestureRecognizer(kakaoTapGesture)
+        kakaoLoginView.isUserInteractionEnabled = true
+        
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if kakaoImageView == nil {
+            let imageView = UIImageView(image: UIImage(named: "kakao_login"))
+            // imageView.contentMode = .scaleAspectFit
+            imageView.contentMode = .scaleToFill
+            imageView.frame = kakaoLoginView.bounds
+            imageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            imageView.clipsToBounds = true
+            kakaoLoginView.addSubview(imageView)
+            kakaoImageView = imageView
+        }
+    }
+
 
     func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -51,7 +81,7 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         present(alert, animated: true)
     }
 
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
+    @IBAction func loginButtonTapped(_ sender: UIView) {
         let email = idTextField.text ?? ""
         let password = pwTextField.text ?? ""
 
@@ -60,7 +90,10 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             return
         }
 
-        let url = URL(string: "http://192.168.219.120:8000/api/login/")!
+        // 집
+        // let url = URL(string: "http://192.168.219.120:8000/api/login/")!
+        // 집 앞 스터디 카페
+        let url = URL(string: "http://172.30.1.24:8000/api/login/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -107,7 +140,10 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     }
 
     func loginWithKakaoAccessToken(_ accessToken: String) {
-        let url = URL(string: "http://192.168.219.120:8000/api/kakao/token/")!
+        // 집
+        // let url = URL(string: "http://192.168.219.120:8000/api/kakao/token/")!
+        // 172.30.1.24 집 앞 스터디 카페
+        let url = URL(string: "http://172.30.1.24:8000/api/kakao/token/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -162,7 +198,9 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     }
 
 
-    @IBAction func naverLoginButtonTapped(_ sender: UIButton) {
+    @IBAction func naverLoginButtonTapped(_ sender: UIView) {
+        naverLoginInstance?.delegate = self
+        
         naverLoginInstance?.requestThirdPartyLogin()
     }
 
@@ -173,34 +211,60 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
     }
 
     func loginWithNaverAccessToken(_ accessToken: String) {
-        let url = URL(string: "http://192.168.219.120:8000/api/naver/token/")!
+        // 집
+        // let url = URL(string: "http://192.168.219.120:8000/api/naver/token/")!
+        // 172.30.1.24 집 앞 스터디 카페
+        // let url = URL(string: "http://172.30.1.24:8000/api/naver/token/")!
+        let url = URL(string: "https://954f-222-98-221-76.ngrok-free.app/api/naver/token/")!
+        
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        // key를 "access_token"으로 수정
-        request.httpBody = try? JSONSerialization.data(withJSONObject: ["access_token": accessToken])
-
+        
+        let body = ["access_token": accessToken]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data,
-                  let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-                  let token = json["token"] as? String else {
-                print("네이버 로그인 실패")
+            if let error = error {
+                print("❌ 네트워크 오류: \(error.localizedDescription)")
                 return
             }
-
-            print("네이버 로그인 성공! 토큰: \(token)")
-            DispatchQueue.main.async {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let myPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageAfterLoginViewController") as? MyPageAfterLoginViewController {
-                    if let nav = self.navigationController {
-                        nav.pushViewController(myPageVC, animated: true)
+            
+            guard let data = data else {
+                print("❌ 데이터 없음")
+                return
+            }
+            
+            do {
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    if let success = json["success"] as? Bool, success == true,
+                       let token = json["token"] as? String {
+                        print("네이버 로그인 성공! 토큰: \(token)")
+                        UserDefaults.standard.set(token, forKey: "jwtToken")
+                        
+                        DispatchQueue.main.async {
+                            // 로그인 성공 후 화면 전환 코드
+                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                            if let myPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageAfterLoginViewController") as? MyPageAfterLoginViewController {
+                                if let nav = self.navigationController {
+                                    nav.pushViewController(myPageVC, animated: true)
+                                } else {
+                                    self.present(myPageVC, animated: true)
+                                }
+                            }
+                        }
                     } else {
-                        self.present(myPageVC, animated: true)
+                        print("❌ 로그인 실패: \(json["error"] ?? "알 수 없는 오류")")
+                        DispatchQueue.main.async {
+                            self.showAlert(title: "로그인 실패", message: "\(json["error"] ?? "알 수 없는 오류")")
+                        }
                     }
                 }
+            } catch {
+                print("❌ JSON 파싱 실패: \(error.localizedDescription)")
             }
         }.resume()
-    }
+        }
 
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {}
     func oauth20ConnectionDidFinishDeleteToken() {}

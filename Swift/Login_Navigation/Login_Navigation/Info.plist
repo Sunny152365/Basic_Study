@@ -9,6 +9,7 @@
 			<array>
 				<string>kakaod369a8ac1b2e52f2eac71adbaaa78e82</string>
 				<string>naverlogin</string>
+                <string>naver_3lM5JlNiGaw3TTgWDa3</string>
 			</array>
 			<key>CFBundleURLName</key>
 			<string></string>
@@ -44,7 +45,21 @@
     <dict>
         <key>NSExceptionDomains</key>
         <dict>
-            <key>192.168.0.16</key>
+            <key>192.168.219.120</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+            <key>172.30.1.24</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+            <key>ngrok-free.app</key>
             <dict>
                 <key>NSIncludesSubdomains</key>
                 <true/>
