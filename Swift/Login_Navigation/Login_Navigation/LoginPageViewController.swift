@@ -39,12 +39,14 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         naverLoginInstance?.delegate = self
         // 인앱 브라우저에서 로그인 시도
         naverLoginInstance?.isInAppOauthEnable = true
+        // 네이버 앱을 통한 로그인 시도
+        naverLoginInstance?.isNaverAppOauthEnable = true
         
         // ✅ 네이버 로그인 이미지 설정
         let naverImageView = UIImageView(image: UIImage(named: "naver_login"))
         naverImageView.contentMode = .scaleAspectFit
         naverImageView.frame = naverLoginView.bounds
-        naverImageView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        naverImageView.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         naverImageView.clipsToBounds = true
         naverLoginView.addSubview(naverImageView)
 
@@ -91,9 +93,9 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }
 
         // 집
-        // let url = URL(string: "http://192.168.219.120:8000/api/login/")!
+        let url = URL(string: "http://192.168.0.16:8000/api/login/")!
         // 집 앞 스터디 카페
-        let url = URL(string: "http://172.30.1.24:8000/api/login/")!
+        // let url = URL(string: "http://172.30.1.44:8000/api/login/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -141,9 +143,9 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
     func loginWithKakaoAccessToken(_ accessToken: String) {
         // 집
-        // let url = URL(string: "http://192.168.219.120:8000/api/kakao/token/")!
+        let url = URL(string: "http://192.168.0.16:8000/api/kakao/token/")!
         // 172.30.1.24 집 앞 스터디 카페
-        let url = URL(string: "http://172.30.1.24:8000/api/kakao/token/")!
+        // let url = URL(string: "http://172.30.1.44:8000/api/kakao/token/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -218,14 +220,18 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         // let url = URL(string: "http://192.168.219.120:8000/api/naver/token/")!
         // 172.30.1.24 집 앞 스터디 카페
         // let url = URL(string: "http://172.30.1.44:8000/api/naver/token/")!
-        let url = URL(string: "https://6f80-222-98-221-76.ngrok-free.app/api/naver/token/")!
+        let url = URL(string: "https://a865-182-224-45-138.ngrok-free.app/api/naver/token/")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+
         let body = ["access_token": accessToken]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+        
+        // 디버깅 로그 추가
+        print("📡 요청 URL: \(request.url?.absoluteString ?? "nil")")
+        print("📤 요청 바디: \(String(data: request.httpBody ?? Data(), encoding: .utf8) ?? "바디 없음")")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {

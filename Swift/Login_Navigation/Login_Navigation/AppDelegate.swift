@@ -35,14 +35,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - URL 스킴 처리 (네이버 로그인 콜백)
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("Received URL: \(url.absoluteString)") // 네이버가 보낸 URL 출력
 
-        // ✅ 네이버 로그인 콜백 처리
         let result = NaverThirdPartyLoginConnection.getSharedInstance().receiveAccessToken(url)
-        if result == .success {
+
+        switch result.rawValue {
+        case 0:
             print("✅ Naver Login Success")
             return true
-        } else {
+        case 1:
             print("❌ Naver Login Failed")
+            return false
+        case 2:
+            print("❌ Naver Login Cancelled")
+            return false
+        default:
+            print("❓ Unknown result from Naver SDK")
             return false
         }
     }
