@@ -91,9 +91,9 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }
 
         // 집
-        // let url = URL(string: "http://192.168.219.120:8000/api/login/")!
+         let url = URL(string: "http://192.168.219.120:8000/api/login/")!
         // 집 앞 스터디 카페
-        let url = URL(string: "http://172.30.1.24:8000/api/login/")!
+        // let url = URL(string: "http://172.30.1.24:8000/api/login/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -215,7 +215,7 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         // let url = URL(string: "http://192.168.219.120:8000/api/naver/token/")!
         // 172.30.1.24 집 앞 스터디 카페
         // let url = URL(string: "http://172.30.1.24:8000/api/naver/token/")!
-        let url = URL(string: "https://954f-222-98-221-76.ngrok-free.app/api/naver/token/")!
+        let url = URL(string: "https://b456-182-224-45-138.ngrok-free.app/api/naver/token/")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
