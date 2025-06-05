@@ -91,9 +91,9 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }
 
         // 집
-         let url = URL(string: "http://192.168.219.120:8000/api/login/")!
+        // let url = URL(string: "http://192.168.219.120:8000/api/login/")!
         // 집 앞 스터디 카페
-        // let url = URL(string: "http://172.30.1.24:8000/api/login/")!
+        let url = URL(string: "http://172.30.1.24:8000/api/login/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -202,11 +202,14 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         naverLoginInstance?.delegate = self
         
         naverLoginInstance?.requestThirdPartyLogin()
+        // let url = "https://9acb-222-98-221-76.ngrok-free.app/api/naver/login-start/"
+        //     if let loginURL = URL(string: url) {
+        //         UIApplication.shared.open(loginURL)
     }
 
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         if let accessToken = naverLoginInstance?.accessToken {
-            loginWithNaverAccessToken(accessToken)
+            loginWithNaverAccessToken(accessToken) // 이 함수에서 POST 요청!
         }
     }
 
@@ -214,8 +217,8 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         // 집
         // let url = URL(string: "http://192.168.219.120:8000/api/naver/token/")!
         // 172.30.1.24 집 앞 스터디 카페
-        // let url = URL(string: "http://172.30.1.24:8000/api/naver/token/")!
-        let url = URL(string: "https://b456-182-224-45-138.ngrok-free.app/api/naver/token/")!
+        // let url = URL(string: "http://172.30.1.44:8000/api/naver/token/")!
+        let url = URL(string: "https://6f80-222-98-221-76.ngrok-free.app/api/naver/token/")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -264,7 +267,7 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
                 print("❌ JSON 파싱 실패: \(error.localizedDescription)")
             }
         }.resume()
-        }
+    }
 
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {}
     func oauth20ConnectionDidFinishDeleteToken() {}
