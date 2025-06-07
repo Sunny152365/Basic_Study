@@ -1,0 +1,22 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+# Pods for Login_Navigation
+
+platform :ios, '13.0'  # ✅ 이 줄 주석 해제하고 버전 수정
+
+target 'Login_Navigation' do
+  use_frameworks!
+
+  # Pods for Login_Navigation
+  pod 'naveridlogin-sdk-ios'  # ✅ 이 줄 추가
+
+  target 'Login_NavigationTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Login_NavigationUITests' do
+    # Pods for testing
+  end
+
+end

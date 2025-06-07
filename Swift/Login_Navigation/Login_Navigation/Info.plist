@@ -8,7 +8,6 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakaod369a8ac1b2e52f2eac71adbaaa78e82</string>
-				<string>naverlogin</string>
                 <string>naver_3lM5JlNiGaw3TTgWDa3</string>
 			</array>
 			<key>CFBundleURLName</key>
@@ -19,6 +18,8 @@
 	<array>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+        <string>naversearchapp</string>
+        <string>naverlogin</string>
 	</array>
 	<key>KAKAO_NATIVE_APP_KEY</key>
 	<string>d369a8ac1b2e52f2eac71adbaaa78e82</string>

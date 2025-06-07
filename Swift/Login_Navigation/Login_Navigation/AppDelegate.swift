@@ -14,53 +14,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // 네이버 로그인 초기 설정
-        naverLoginInstance?.isNaverAppOauthEnable = true      // 네이버 앱으로 로그인 허용
-        naverLoginInstance?.isInAppOauthEnable = true         // 인앱 브라우저 로그인 허용
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         
-        // Info.plist에 등록한 네이버 URL Scheme과 반드시 동일하게 수정 필요
-        naverLoginInstance?.serviceUrlScheme = "naver_3lM5JlNiGaw3TTgWDa3"
-        
-        naverLoginInstance?.consumerKey = "_3lM5JlNiGaw3TTgWDa3"        // 네이버 개발자센터 Client ID
-        naverLoginInstance?.consumerSecret = "u4zbVlZiD7"               // 네이버 개발자센터 Client Secret
-        naverLoginInstance?.appName = "imitateSoomgo"                   // 앱 이름
+        // ✅ 네이버 로그인 초기 설정
+        naverLoginInstance?.isNaverAppOauthEnable = true
+        naverLoginInstance?.isInAppOauthEnable = true
+        naverLoginInstance?.serviceUrlScheme = "naver_3lM5JlNiGaw3TTgWDa3" // Info.plist와 동일해야 함
+        naverLoginInstance?.consumerKey = "_3lM5JlNiGaw3TTgWDa3"
+        naverLoginInstance?.consumerSecret = "u4zbVlZiD7"
+        naverLoginInstance?.appName = "imitateSoomgo"
 
-        // 카카오 로그인 초기 설정
+        // ✅ 카카오 로그인 초기화
         KakaoSDK.initSDK(appKey: "d369a8ac1b2e52f2eac71adbaaa78e82")
-        
+
         return true
     }
 
-    // MARK: - URL 스킴 처리 (네이버 로그인 콜백)
-    func application(_ app: UIApplication, open url: URL,
-                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        print("Received URL: \(url.absoluteString)") // 네이버가 보낸 URL 출력
-
-        let result = NaverThirdPartyLoginConnection.getSharedInstance().receiveAccessToken(url)
-
-        switch result.rawValue {
-        case 0:
-            print("✅ Naver Login Success")
-            return true
-        case 1:
-            print("❌ Naver Login Failed")
-            return false
-        case 2:
-            print("❌ Naver Login Cancelled")
-            return false
-        default:
-            print("❓ Unknown result from Naver SDK")
-            return false
-        }
+    // ✅ 앱 URL 처리 - 네이버 로그인 콜백을 처리
+    func application(
+        _ application: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey : Any] = [:]
+    ) -> Bool {
+        return NaverThirdPartyLoginConnection
+            .getSharedInstance()
+            .application(application, open: url, options: options)
     }
 
-    // MARK: - UISceneSession Lifecycle
+    // ✅ UISceneDelegate 사용 시 필요 (iOS 13 이상)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // 생략 가능
+        // 필요 시 세션 정리
     }
 }

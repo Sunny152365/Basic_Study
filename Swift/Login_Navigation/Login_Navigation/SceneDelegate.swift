@@ -7,18 +7,37 @@
 
 import UIKit
 import KakaoSDKAuth
+import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
+
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
-            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                _ = AuthController.handleOpenUrl(url: url)
+        guard let url = URLContexts.first?.url else { return }
+
+        print("📦 [SceneDelegate] 수신된 URL: \(url.absoluteString)")
+
+        // ✅ 네이버 로그인 처리
+        if url.scheme?.hasPrefix("naver") == true {
+            let result = NaverThirdPartyLoginConnection
+                .getSharedInstance()
+                .receiveAccessToken(url)
+            switch result.rawValue {
+            case 0: print("✅ 네이버 로그인 성공")
+            case 1: print("❌ 네이버 로그인 실패")
+            case 2: print("🚫 네이버 로그인 취소")
+            default: print("❓ 네이버 로그인 알 수 없는 상태")
             }
         }
-    }    
+
+        // ✅ 카카오 로그인 처리
+        if AuthApi.isKakaoTalkLoginUrl(url) {
+            _ = AuthController.handleOpenUrl(url: url)
+            print("✅ 카카오 로그인 URL 처리 완료")
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

@@ -37,6 +37,7 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         super.viewDidLoad()
         setupAppleLoginButton()
         naverLoginInstance?.delegate = self
+        print("✅ delegate 설정 완료: \(String(describing: naverLoginInstance?.delegate))")
         // 인앱 브라우저에서 로그인 시도
         naverLoginInstance?.isInAppOauthEnable = true
         // 네이버 앱을 통한 로그인 시도
@@ -51,11 +52,11 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         naverLoginView.addSubview(naverImageView)
 
         // ✅ naver 탭 제스처 추가
-        let naverTapGesture = UITapGestureRecognizer(target: self, action: #selector(naverLoginButtonTapped))
+        let naverTapGesture = UITapGestureRecognizer(target: self, action: #selector(naverLoginViewTapped))
         naverLoginView.addGestureRecognizer(naverTapGesture)
         naverLoginView.isUserInteractionEnabled = true
         // ✅ kakao 탭 제스처 추가
-        let kakaoTapGesture = UITapGestureRecognizer(target: self, action: #selector(kakaoLoginButtonTapped))
+        let kakaoTapGesture = UITapGestureRecognizer(target: self, action: #selector(kakaoLoginViewTapped))
         kakaoLoginView.addGestureRecognizer(kakaoTapGesture)
         kakaoLoginView.isUserInteractionEnabled = true
         
@@ -120,7 +121,7 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }.resume()
     }
 
-    @IBAction func kakaoLoginButtonTapped(_ sender: UIButton) {
+    @objc func kakaoLoginViewTapped() {
         if UserApi.isKakaoTalkLoginAvailable() {
             UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
                 if let error = error {
@@ -138,9 +139,8 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
                 }
             }
         }
-        
     }
-
+    
     func loginWithKakaoAccessToken(_ accessToken: String) {
         // 집
         let url = URL(string: "http://192.168.0.16:8000/api/kakao/token/")!
@@ -199,41 +199,57 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
         }.resume()
     }
 
-
-    @IBAction func naverLoginButtonTapped(_ sender: UIView) {
+    @objc func naverLoginViewTapped() {
+        print("네이버 로그인 버튼 눌림")
         naverLoginInstance?.delegate = self
-        
         naverLoginInstance?.requestThirdPartyLogin()
-        // let url = "https://9acb-222-98-221-76.ngrok-free.app/api/naver/login-start/"
-        //     if let loginURL = URL(string: url) {
-        //         UIApplication.shared.open(loginURL)
+
+        // 또는 URL 방식 사용 시:
+        /*
+        let url = "https://9acb-222-98-221-76.ngrok-free.app/api/naver/login-start/"
+        if let loginURL = URL(string: url) {
+            UIApplication.shared.open(loginURL)
+        }
+        */
     }
 
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        if let accessToken = naverLoginInstance?.accessToken {
-            loginWithNaverAccessToken(accessToken) // 이 함수에서 POST 요청!
+        print("access token 발급 완료")
+        if let token = naverLoginInstance?.accessToken {
+            print("access token: \(token)")
+            loginWithNaverAccessToken(token)
         }
     }
 
+    func oauth20ConnectionDidFinishRequestREFTokenWithRefreshToken() {
+        print("refresh token 발급 완료")
+    }
+
+    func oauth20ConnectionDidFailWithError(_ error: Error) {
+        print("네이버 로그인 실패:", error.localizedDescription)
+    }
+
     func loginWithNaverAccessToken(_ accessToken: String) {
+        
         // 집
         // let url = URL(string: "http://192.168.219.120:8000/api/naver/token/")!
         // 172.30.1.24 집 앞 스터디 카페
         // let url = URL(string: "http://172.30.1.44:8000/api/naver/token/")!
-        let url = URL(string: "https://a865-182-224-45-138.ngrok-free.app/api/naver/token/")!
+        print("loginWithNaverAccessToken 호출됨")
         
+        let url = URL(string: "https://c1e4-182-224-45-138.ngrok-free.app/api/naver/token/")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
         let body = ["access_token": accessToken]
         request.httpBody = try? JSONSerialization.data(withJSONObject: body)
         
-        // 디버깅 로그 추가
         print("📡 요청 URL: \(request.url?.absoluteString ?? "nil")")
         print("📤 요청 바디: \(String(data: request.httpBody ?? Data(), encoding: .utf8) ?? "바디 없음")")
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+            print("네트워크 응답 도착")
+            
             if let error = error {
                 print("❌ 네트워크 오류: \(error.localizedDescription)")
                 return
@@ -246,27 +262,16 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
             
             do {
                 if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                    print("응답 JSON: \(json)")
                     if let success = json["success"] as? Bool, success == true,
                        let token = json["token"] as? String {
                         print("네이버 로그인 성공! 토큰: \(token)")
                         UserDefaults.standard.set(token, forKey: "jwtToken")
-                        
                         DispatchQueue.main.async {
-                            // 로그인 성공 후 화면 전환 코드
-                            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                            if let myPageVC = storyboard.instantiateViewController(withIdentifier: "MyPageAfterLoginViewController") as? MyPageAfterLoginViewController {
-                                if let nav = self.navigationController {
-                                    nav.pushViewController(myPageVC, animated: true)
-                                } else {
-                                    self.present(myPageVC, animated: true)
-                                }
-                            }
+                            // 화면 전환 코드 ...
                         }
                     } else {
                         print("❌ 로그인 실패: \(json["error"] ?? "알 수 없는 오류")")
-                        DispatchQueue.main.async {
-                            self.showAlert(title: "로그인 실패", message: "\(json["error"] ?? "알 수 없는 오류")")
-                        }
                     }
                 }
             } catch {
