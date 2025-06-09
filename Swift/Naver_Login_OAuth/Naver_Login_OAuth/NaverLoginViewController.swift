@@ -1,39 +1,16 @@
-//
-//  ViewController.swift
-//  Naver_Login_OAuth
-//
-//  Created by 최원일 on 6/8/25.
-//
-
 import UIKit
-import NaverThirdPartyLogin
+import AuthenticationServices
 
 class NaverLoginViewController: UIViewController {
 
-    private let naverLoginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
-
     @IBOutlet weak var naverLoginView: UIView!
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationItem.hidesBackButton = true
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("✅ viewDidLoad 호출됨")
 
+        print("[DEBUG] viewDidLoad 호출됨")
         view.backgroundColor = .white
 
-        // 네이버 로그인 설정
-        naverLoginInstance?.isNaverAppOauthEnable = true
-        naverLoginInstance?.isInAppOauthEnable = true
-        naverLoginInstance?.isOnlyPortraitSupportedInIphone()
-        naverLoginInstance?.delegate = self
-        print("✅ Naver SDK 초기화 및 delegate 설정 완료")
-
-        // 이미지뷰 구성
         let naverImageView = UIImageView(image: UIImage(named: "naver_login"))
         naverImageView.contentMode = .scaleAspectFit
         naverImageView.frame = naverLoginView.bounds
@@ -42,31 +19,119 @@ class NaverLoginViewController: UIViewController {
         naverImageView.isUserInteractionEnabled = true
         naverLoginView.addSubview(naverImageView)
 
-        // 탭 제스처 등록
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(naverLoginViewTapped))
         naverImageView.addGestureRecognizer(tapGesture)
-        print("✅ 탭 제스처 등록 완료")
-
-        // Notification 등록
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(handleNaverAccessToken(_:)),
-            name: .naverTokenReceived,
-            object: nil
-        )
     }
 
     @objc func naverLoginViewTapped() {
-        print("✅ 뷰가 클릭됨 - 로그인 시도 시작")
-        naverLoginInstance?.requestThirdPartyLogin()
-        print("🔄 requestThirdPartyLogin() 호출 완료")
+        print("[DEBUG] ✅ 뷰가 클릭됨 - OAuth 로그인 시도 시작")
+        startNaverLogin()
+    }
+
+    func startNaverLogin() {
+        print("[DEBUG] startNaverLogin 시작")
+
+        let clientID = "_3lM5JlNiGaw3TTgWDa3"
+        let redirectURI = "naver_3lM5JlNiGaw3TTgWDa3://auth"
+        let state = UUID().uuidString
+
+        let authURL = """
+        https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=\(clientID)&redirect_uri=\(redirectURI)&state=\(state)
+        """
+
+        guard let url = URL(string: authURL) else {
+            print("[DEBUG] ❌ startNaverLogin: URL 생성 실패")
+            return
+        }
+        print("[DEBUG] authURL 생성됨: \(url)")
+
+        let session = ASWebAuthenticationSession(
+            url: url,
+            callbackURLScheme: "naver_3lM5JlNiGaw3TTgWDa3"
+        ) { callbackURL, error in
+            print("[DEBUG] ASWebAuthenticationSession 콜백 호출됨")
+
+            guard
+                error == nil,
+                let callbackURL = callbackURL,
+                let components = URLComponents(url: callbackURL, resolvingAgainstBaseURL: false),
+                let queryItems = components.queryItems
+            else {
+                print("[DEBUG] ❌ 로그인 실패 또는 취소: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+
+            if let code = queryItems.first(where: { $0.name == "code" })?.value,
+               let state = queryItems.first(where: { $0.name == "state" })?.value {
+                print("[DEBUG] ✅ 로그인 성공: code=\(code), state=\(state)")
+                self.requestAccessToken(code: code, state: state)
+            } else {
+                print("[DEBUG] ❌ code 또는 state 추출 실패")
+            }
+        }
+
+        session.presentationContextProvider = self
+        session.prefersEphemeralWebBrowserSession = true
+
+        print("[DEBUG] ASWebAuthenticationSession 시작")
+        session.start()
+    }
+
+    func requestAccessToken(code: String, state: String) {
+        print("[DEBUG] requestAccessToken 시작")
+
+        let clientID = "_3lM5JlNiGaw3TTgWDa3"
+        let clientSecret = "u4zbVlZiD7"
+        let redirectURI = "naver_3lM5JlNiGaw3TTgWDa3://auth"
+
+        var components = URLComponents(string: "https://nid.naver.com/oauth2.0/token")!
+        components.queryItems = [
+            URLQueryItem(name: "grant_type", value: "authorization_code"),
+            URLQueryItem(name: "client_id", value: clientID),
+            URLQueryItem(name: "client_secret", value: clientSecret),
+            URLQueryItem(name: "code", value: code),
+            URLQueryItem(name: "state", value: state),
+            URLQueryItem(name: "redirect_uri", value: redirectURI)
+        ]
+
+        guard let url = components.url else {
+            print("[DEBUG] ❌ requestAccessToken: URLComponents.url 생성 실패")
+            return
+        }
+        print("[DEBUG] accessToken 요청 URL: \(url)")
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("[DEBUG] ❌ 토큰 요청 실패: \(error.localizedDescription)")
+                return
+            }
+
+            guard let data = data else {
+                print("[DEBUG] ❌ 응답 데이터 없음")
+                return
+            }
+
+            if let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] {
+                if let accessToken = json["access_token"] as? String {
+                    print("[DEBUG] ✅ Access Token 추출 완료: \(accessToken)")
+                    self.sendAccessTokenToBackend(accessToken)
+                } else {
+                    print("[DEBUG] ⚠️ 응답에 access_token 없음: \(json)")
+                }
+            } else {
+                print("[DEBUG] ❌ 응답 JSON 파싱 실패")
+            }
+        }.resume()
     }
 
     func sendAccessTokenToBackend(_ accessToken: String) {
-        print("✅ 서버에 access token 전달 시작")
+        print("[DEBUG] 서버에 access token 전달 시작")
 
         guard let url = URL(string: "https://66c7-222-98-221-76.ngrok-free.app/api/users/naver-login/") else {
-            print("❌ URL 생성 실패")
+            print("[DEBUG] ❌ URL 생성 실패")
             return
         }
 
@@ -79,46 +144,25 @@ class NaverLoginViewController: UIViewController {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("❌ 서버 통신 실패: \(error.localizedDescription)")
+                print("[DEBUG] ❌ 서버 통신 실패: \(error.localizedDescription)")
                 return
             }
 
             if let httpResponse = response as? HTTPURLResponse {
-                print("✅ 서버 응답 상태코드: \(httpResponse.statusCode)")
+                print("[DEBUG] ✅ 서버 응답 상태코드: \(httpResponse.statusCode)")
             }
 
             if let data = data {
-                print("✅ 서버 응답 데이터: \(String(data: data, encoding: .utf8) ?? "")")
+                print("[DEBUG] ✅ 서버 응답 데이터: \(String(data: data, encoding: .utf8) ?? "")")
             }
         }.resume()
     }
 }
 
-// MARK: - NaverThirdPartyLoginConnectionDelegate
-extension NaverLoginViewController: NaverThirdPartyLoginConnectionDelegate {
-    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        print("✅ access token 발급 성공")
-        // 👉 여기서는 더 이상 sendAccessTokenToBackend를 호출하지 않음
-    }
-
-    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        print("ℹ️ Refresh Token 흐름 발생")
-    }
-
-    func oauth20ConnectionDidFinishDeleteToken() {
-        print("ℹ️ 토큰 삭제 완료")
-    }
-
-    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        print("❌ 네이버 로그인 실패: \(error.localizedDescription)")
-    }
-
-    @objc func handleNaverAccessToken(_ notification: Notification) {
-        if let token = notification.object as? String {
-            print("✅ Notification 통해 access token 수신 완료: \(token)")
-            sendAccessTokenToBackend(token)
-        } else {
-            print("❌ Notification에서 access token 추출 실패")
-        }
+// MARK: - ASWebAuthenticationSession Presentation Anchor
+extension NaverLoginViewController: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        print("[DEBUG] presentationAnchor 호출됨")
+        return self.view.window!
     }
 }
