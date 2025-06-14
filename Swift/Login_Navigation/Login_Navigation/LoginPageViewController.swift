@@ -28,10 +28,10 @@ class LoginPageViewController: UIViewController {
     private var naverAuthSession: ASWebAuthenticationSession?
     private var isNaverLoginInProgress = false
 
-    private let naverClientID = "_3lM5JlNiGaw3TTgWDa3"
+    private let naverClientID = "KhS0SAhDdsySi5rd5bRf"
     // ngrok 주소 사용해야함
-    private let naverRedirectURI = "https://9fe0-182-224-45-138.ngrok-free.app/api/naver/callback/"
-    private let naverCallbackScheme = "naver_3lM5JlNiGaw3TTgWDa3"
+    private let naverRedirectURI = "https://3371-182-224-45-138.ngrok-free.app/api/naver/callback/"
+    private let naverCallbackScheme = "naverKhS0SAhDdsySi5rd5bRf"
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -227,7 +227,7 @@ class LoginPageViewController: UIViewController {
     }
 
     private func fetchNaverToken(withCode code: String, state: String) {
-        let tokenURL = URL(string: "https://9fe0-182-224-45-138.ngrok-free.app/api/naver/token/")!
+        let tokenURL = URL(string: "https://3371-182-224-45-138.ngrok-free.app/api/naver/token/")!
         // let tokenURL = URL(string: "http://192.168.0.16:8000/api/naver/token/")!
         var request = URLRequest(url: tokenURL)
         request.httpMethod = "POST"
