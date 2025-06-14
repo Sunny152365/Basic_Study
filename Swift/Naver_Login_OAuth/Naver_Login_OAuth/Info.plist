@@ -14,6 +14,7 @@
         <array>
           <!-- <string>com.mycompany.Naver-Login-OAuth</string> -->
           <string>naver_3lM5JlNiGaw3TTgWDa3</string>
+          <string>naverapp</string> <!-- ✅ 서버에서 리디렉션하는 스킴 -->
         </array>
       </dict>
     </array>
