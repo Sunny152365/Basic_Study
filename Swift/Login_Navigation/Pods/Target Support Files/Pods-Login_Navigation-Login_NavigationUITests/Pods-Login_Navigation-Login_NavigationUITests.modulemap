@@ -1,6 +1,0 @@
-framework module Pods_Login_Navigation_Login_NavigationUITests {
-  umbrella header "Pods-Login_Navigation-Login_NavigationUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}

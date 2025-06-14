@@ -7,403 +7,281 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F86A7852DE72C7C003396E5 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7842DE72C7C003396E5 /* KakaoSDK */; };
-		1F86A7872DE72C7C003396E5 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7862DE72C7C003396E5 /* KakaoSDKAuth */; };
-		1F86A7892DE72C7C003396E5 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7882DE72C7C003396E5 /* KakaoSDKCert */; };
-		1F86A78B2DE72C7C003396E5 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A78A2DE72C7C003396E5 /* KakaoSDKCertCore */; };
-		1F86A78D2DE72C7C003396E5 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A78C2DE72C7C003396E5 /* KakaoSDKCommon */; };
-		1F86A78F2DE72C7C003396E5 /* KakaoSDKFriend in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A78E2DE72C7C003396E5 /* KakaoSDKFriend */; };
-		1F86A7912DE72C7C003396E5 /* KakaoSDKFriendCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7902DE72C7C003396E5 /* KakaoSDKFriendCore */; };
-		1F86A7932DE72C7C003396E5 /* KakaoSDKNavi in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7922DE72C7C003396E5 /* KakaoSDKNavi */; };
-		1F86A7952DE72C7C003396E5 /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7942DE72C7C003396E5 /* KakaoSDKShare */; };
-		1F86A7972DE72C7C003396E5 /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7962DE72C7C003396E5 /* KakaoSDKTalk */; };
-		1F86A7992DE72C7C003396E5 /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7982DE72C7C003396E5 /* KakaoSDKTemplate */; };
-		1F86A79B2DE72C7C003396E5 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A79A2DE72C7C003396E5 /* KakaoSDKUser */; };
-		1F86A79D2DE72D19003396E5 /* FirebaseAppDistribution-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A79C2DE72D19003396E5 /* FirebaseAppDistribution-Beta */; };
-		1F86A79F2DE72D19003396E5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A79E2DE72D19003396E5 /* FirebaseAuth */; };
-		1F86A7A12DE72D19003396E5 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7A02DE72D19003396E5 /* FirebaseAuthCombine-Community */; };
-		1F86A7A32DE72D19003396E5 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7A22DE72D19003396E5 /* FirebaseCore */; };
-		1F86A7A52DE72D19003396E5 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7A42DE72D19003396E5 /* FirebaseCrashlytics */; };
-		1F86A7A72DE72D19003396E5 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7A62DE72D19003396E5 /* FirebaseDatabase */; };
-		1F86A7A92DE72D19003396E5 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7A82DE72D19003396E5 /* FirebaseDynamicLinks */; };
-		1F86A7AB2DE72D19003396E5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7AA2DE72D19003396E5 /* FirebaseFirestore */; };
-		1F86A7AD2DE72D19003396E5 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7AC2DE72D19003396E5 /* FirebaseFirestoreCombine-Community */; };
-		1F86A7AF2DE72D19003396E5 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7AE2DE72D19003396E5 /* FirebaseFunctions */; };
-		1F86A7B12DE72D19003396E5 /* FirebaseFunctionsCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7B02DE72D19003396E5 /* FirebaseFunctionsCombine-Community */; };
-		1F86A7B32DE72D19003396E5 /* FirebaseInAppMessaging-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7B22DE72D19003396E5 /* FirebaseInAppMessaging-Beta */; };
-		1F86A7B52DE72D19003396E5 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7B42DE72D19003396E5 /* FirebaseInstallations */; };
-		1F86A7B72DE72D19003396E5 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7B62DE72D19003396E5 /* FirebaseMLModelDownloader */; };
-		1F86A7B92DE72D19003396E5 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7B82DE72D19003396E5 /* FirebaseMessaging */; };
-		1F86A7BB2DE72D19003396E5 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7BA2DE72D19003396E5 /* FirebasePerformance */; };
-		1F86A7BD2DE72D19003396E5 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7BC2DE72D19003396E5 /* FirebaseRemoteConfig */; };
-		1F86A7BF2DE72D19003396E5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7BE2DE72D19003396E5 /* FirebaseStorage */; };
-		1F86A7C12DE72D19003396E5 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7C02DE72D19003396E5 /* FirebaseStorageCombine-Community */; };
-		1F86A7C32DE72D19003396E5 /* FirebaseVertexAI in Frameworks */ = {isa = PBXBuildFile; productRef = 1F86A7C22DE72D19003396E5 /* FirebaseVertexAI */; };
-		4BE67B2D4CA7ABE2D233CD86 /* Pods_Login_Navigation_Login_NavigationUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 660C22CAB23621DCB39B4562 /* Pods_Login_Navigation_Login_NavigationUITests.framework */; };
-		57C96AF82DE6F9940047B45C /* FirebaseAI in Frameworks */ = {isa = PBXBuildFile; productRef = 57C96AF72DE6F9940047B45C /* FirebaseAI */; };
-		57C96AFA2DE6F9940047B45C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 57C96AF92DE6F9940047B45C /* FirebaseAnalytics */; };
-		57C96AFC2DE6F9940047B45C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 57C96AFB2DE6F9940047B45C /* FirebaseAnalyticsOnDeviceConversion */; };
-		57C96AFE2DE6F9940047B45C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 57C96AFD2DE6F9940047B45C /* FirebaseAnalyticsWithoutAdIdSupport */; };
-		57C96B002DE6F9940047B45C /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 57C96AFF2DE6F9940047B45C /* FirebaseAppCheck */; };
-		57C96B022DE6F9B10047B45C /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 57C96B012DE6F9B10047B45C /* NaverThirdPartyLogin */; };
-		8DAE4B681633F594634A1C0B /* Pods_Login_NavigationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E49DAFE04765B172291181E7 /* Pods_Login_NavigationTests.framework */; };
-		E4CC2749BA73933EF82C00A4 /* Pods_Login_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A5F66445E0D7C0948B1AA5 /* Pods_Login_Navigation.framework */; };
+		1FB8B69C2DF48E010080698D /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B69B2DF48E010080698D /* KakaoSDK */; };
+		1FB8B69E2DF48E010080698D /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B69D2DF48E010080698D /* KakaoSDKAuth */; };
+		1FB8B6A02DF48E010080698D /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B69F2DF48E010080698D /* KakaoSDKCert */; };
+		1FB8B6A22DF48E010080698D /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6A12DF48E010080698D /* KakaoSDKCertCore */; };
+		1FB8B6A42DF48E010080698D /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6A32DF48E010080698D /* KakaoSDKCommon */; };
+		1FB8B6A62DF48E010080698D /* KakaoSDKFriend in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6A52DF48E010080698D /* KakaoSDKFriend */; };
+		1FB8B6A82DF48E010080698D /* KakaoSDKFriendCore in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6A72DF48E010080698D /* KakaoSDKFriendCore */; };
+		1FB8B6AA2DF48E010080698D /* KakaoSDKNavi in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6A92DF48E010080698D /* KakaoSDKNavi */; };
+		1FB8B6AC2DF48E010080698D /* KakaoSDKShare in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6AB2DF48E010080698D /* KakaoSDKShare */; };
+		1FB8B6AE2DF48E010080698D /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6AD2DF48E010080698D /* KakaoSDKTalk */; };
+		1FB8B6B02DF48E010080698D /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6AF2DF48E010080698D /* KakaoSDKTemplate */; };
+		1FB8B6B22DF48E010080698D /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6B12DF48E010080698D /* KakaoSDKUser */; };
+		1FB8B6B52DF48E470080698D /* NaverThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 1FB8B6B42DF48E470080698D /* NaverThirdPartyLogin */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F756F6F2DE5755A000A94D9 /* PBXContainerItemProxy */ = {
+		1FAD7AEF2DF48C1E000438A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1F756F502DE57559000A94D9 /* Project object */;
+			containerPortal = 1FAD7AD02DF48C1D000438A8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1F756F572DE57559000A94D9;
+			remoteGlobalIDString = 1FAD7AD72DF48C1D000438A8;
 			remoteInfo = Login_Navigation;
 		};
-		1F756F792DE5755A000A94D9 /* PBXContainerItemProxy */ = {
+		1FAD7AF92DF48C1E000438A8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1F756F502DE57559000A94D9 /* Project object */;
+			containerPortal = 1FAD7AD02DF48C1D000438A8 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1F756F572DE57559000A94D9;
+			remoteGlobalIDString = 1FAD7AD72DF48C1D000438A8;
 			remoteInfo = Login_Navigation;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00A5F66445E0D7C0948B1AA5 /* Pods_Login_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F756F582DE57559000A94D9 /* Login_Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login_Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F756F6E2DE5755A000A94D9 /* Login_NavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Login_NavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F756F782DE5755A000A94D9 /* Login_NavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Login_NavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2DE85A9732AED7366561956B /* Pods-Login_Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Login_Navigation/Pods-Login_Navigation.debug.xcconfig"; sourceTree = "<group>"; };
-		55611A7C67B8426D033773E5 /* Pods-Login_NavigationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_NavigationTests.debug.xcconfig"; path = "Target Support Files/Pods-Login_NavigationTests/Pods-Login_NavigationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		58A0DC3BBA6C707BE7250779 /* Pods-Login_Navigation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_Navigation.release.xcconfig"; path = "Target Support Files/Pods-Login_Navigation/Pods-Login_Navigation.release.xcconfig"; sourceTree = "<group>"; };
-		632B9BEA1C9A135E30F9CB87 /* Pods-Login_Navigation-Login_NavigationUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_Navigation-Login_NavigationUITests.debug.xcconfig"; path = "Target Support Files/Pods-Login_Navigation-Login_NavigationUITests/Pods-Login_Navigation-Login_NavigationUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		660C22CAB23621DCB39B4562 /* Pods_Login_Navigation_Login_NavigationUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_Navigation_Login_NavigationUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A88F721F890CD967C5972EE /* Pods-Login_NavigationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_NavigationTests.release.xcconfig"; path = "Target Support Files/Pods-Login_NavigationTests/Pods-Login_NavigationTests.release.xcconfig"; sourceTree = "<group>"; };
-		85378358C4682C4BE482E1C7 /* Pods-Login_Navigation-Login_NavigationUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login_Navigation-Login_NavigationUITests.release.xcconfig"; path = "Target Support Files/Pods-Login_Navigation-Login_NavigationUITests/Pods-Login_Navigation-Login_NavigationUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E49DAFE04765B172291181E7 /* Pods_Login_NavigationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login_NavigationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FAD7AD82DF48C1D000438A8 /* Login_Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login_Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FAD7AEE2DF48C1E000438A8 /* Login_NavigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Login_NavigationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FAD7AF82DF48C1E000438A8 /* Login_NavigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Login_NavigationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		1F756F802DE5755A000A94D9 /* Exceptions for "Login_Navigation" folder in "Login_Navigation" target */ = {
+		1FAD7B002DF48C1E000438A8 /* Exceptions for "Login_Navigation" folder in "Login_Navigation" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 1F756F572DE57559000A94D9 /* Login_Navigation */;
+			target = 1FAD7AD72DF48C1D000438A8 /* Login_Navigation */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		1F756F5A2DE57559000A94D9 /* Login_Navigation */ = {
+		1FAD7ADA2DF48C1D000438A8 /* Login_Navigation */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				1F756F802DE5755A000A94D9 /* Exceptions for "Login_Navigation" folder in "Login_Navigation" target */,
+				1FAD7B002DF48C1E000438A8 /* Exceptions for "Login_Navigation" folder in "Login_Navigation" target */,
 			);
 			path = Login_Navigation;
 			sourceTree = "<group>";
 		};
-		1F756F712DE5755A000A94D9 /* Login_NavigationTests */ = {
+		1FAD7AF12DF48C1E000438A8 /* Login_NavigationTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Login_NavigationTests;
 			sourceTree = "<group>";
 		};
-		1F756F7B2DE5755A000A94D9 /* Login_NavigationUITests */ = {
+		1FAD7AFB2DF48C1E000438A8 /* Login_NavigationUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-			);
 			path = Login_NavigationUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1F756F552DE57559000A94D9 /* Frameworks */ = {
+		1FAD7AD52DF48C1D000438A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F86A7892DE72C7C003396E5 /* KakaoSDKCert in Frameworks */,
-				1F86A7AB2DE72D19003396E5 /* FirebaseFirestore in Frameworks */,
-				1F86A7B52DE72D19003396E5 /* FirebaseInstallations in Frameworks */,
-				1F86A7972DE72C7C003396E5 /* KakaoSDKTalk in Frameworks */,
-				1F86A7AD2DE72D19003396E5 /* FirebaseFirestoreCombine-Community in Frameworks */,
-				1F86A7A32DE72D19003396E5 /* FirebaseCore in Frameworks */,
-				1F86A78D2DE72C7C003396E5 /* KakaoSDKCommon in Frameworks */,
-				1F86A7952DE72C7C003396E5 /* KakaoSDKShare in Frameworks */,
-				57C96AFA2DE6F9940047B45C /* FirebaseAnalytics in Frameworks */,
-				1F86A7B92DE72D19003396E5 /* FirebaseMessaging in Frameworks */,
-				1F86A7A72DE72D19003396E5 /* FirebaseDatabase in Frameworks */,
-				1F86A7C32DE72D19003396E5 /* FirebaseVertexAI in Frameworks */,
-				1F86A78B2DE72C7C003396E5 /* KakaoSDKCertCore in Frameworks */,
-				57C96AFC2DE6F9940047B45C /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
-				57C96AF82DE6F9940047B45C /* FirebaseAI in Frameworks */,
-				1F86A79B2DE72C7C003396E5 /* KakaoSDKUser in Frameworks */,
-				1F86A7912DE72C7C003396E5 /* KakaoSDKFriendCore in Frameworks */,
-				57C96B002DE6F9940047B45C /* FirebaseAppCheck in Frameworks */,
-				1F86A7AF2DE72D19003396E5 /* FirebaseFunctions in Frameworks */,
-				1F86A79F2DE72D19003396E5 /* FirebaseAuth in Frameworks */,
-				57C96B022DE6F9B10047B45C /* NaverThirdPartyLogin in Frameworks */,
-				1F86A7B72DE72D19003396E5 /* FirebaseMLModelDownloader in Frameworks */,
-				1F86A79D2DE72D19003396E5 /* FirebaseAppDistribution-Beta in Frameworks */,
-				57C96AFE2DE6F9940047B45C /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
-				1F86A7C12DE72D19003396E5 /* FirebaseStorageCombine-Community in Frameworks */,
-				1F86A7852DE72C7C003396E5 /* KakaoSDK in Frameworks */,
-				1F86A7BD2DE72D19003396E5 /* FirebaseRemoteConfig in Frameworks */,
-				1F86A7992DE72C7C003396E5 /* KakaoSDKTemplate in Frameworks */,
-				1F86A7A92DE72D19003396E5 /* FirebaseDynamicLinks in Frameworks */,
-				1F86A7BB2DE72D19003396E5 /* FirebasePerformance in Frameworks */,
-				1F86A7A52DE72D19003396E5 /* FirebaseCrashlytics in Frameworks */,
-				1F86A7BF2DE72D19003396E5 /* FirebaseStorage in Frameworks */,
-				1F86A7932DE72C7C003396E5 /* KakaoSDKNavi in Frameworks */,
-				1F86A7872DE72C7C003396E5 /* KakaoSDKAuth in Frameworks */,
-				1F86A7B12DE72D19003396E5 /* FirebaseFunctionsCombine-Community in Frameworks */,
-				1F86A7A12DE72D19003396E5 /* FirebaseAuthCombine-Community in Frameworks */,
-				1F86A78F2DE72C7C003396E5 /* KakaoSDKFriend in Frameworks */,
-				1F86A7B32DE72D19003396E5 /* FirebaseInAppMessaging-Beta in Frameworks */,
-				E4CC2749BA73933EF82C00A4 /* Pods_Login_Navigation.framework in Frameworks */,
+				1FB8B6A82DF48E010080698D /* KakaoSDKFriendCore in Frameworks */,
+				1FB8B6A22DF48E010080698D /* KakaoSDKCertCore in Frameworks */,
+				1FB8B6B52DF48E470080698D /* NaverThirdPartyLogin in Frameworks */,
+				1FB8B6A02DF48E010080698D /* KakaoSDKCert in Frameworks */,
+				1FB8B6B02DF48E010080698D /* KakaoSDKTemplate in Frameworks */,
+				1FB8B6AA2DF48E010080698D /* KakaoSDKNavi in Frameworks */,
+				1FB8B69C2DF48E010080698D /* KakaoSDK in Frameworks */,
+				1FB8B6A42DF48E010080698D /* KakaoSDKCommon in Frameworks */,
+				1FB8B69E2DF48E010080698D /* KakaoSDKAuth in Frameworks */,
+				1FB8B6B22DF48E010080698D /* KakaoSDKUser in Frameworks */,
+				1FB8B6AE2DF48E010080698D /* KakaoSDKTalk in Frameworks */,
+				1FB8B6A62DF48E010080698D /* KakaoSDKFriend in Frameworks */,
+				1FB8B6AC2DF48E010080698D /* KakaoSDKShare in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F756F6B2DE5755A000A94D9 /* Frameworks */ = {
+		1FAD7AEB2DF48C1E000438A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DAE4B681633F594634A1C0B /* Pods_Login_NavigationTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F756F752DE5755A000A94D9 /* Frameworks */ = {
+		1FAD7AF52DF48C1E000438A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BE67B2D4CA7ABE2D233CD86 /* Pods_Login_Navigation_Login_NavigationUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C83DAAFC91179C91CF78F32 /* Frameworks */ = {
+		1FAD7ACF2DF48C1D000438A8 = {
 			isa = PBXGroup;
 			children = (
-				00A5F66445E0D7C0948B1AA5 /* Pods_Login_Navigation.framework */,
-				660C22CAB23621DCB39B4562 /* Pods_Login_Navigation_Login_NavigationUITests.framework */,
-				E49DAFE04765B172291181E7 /* Pods_Login_NavigationTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1F756F4F2DE57559000A94D9 = {
-			isa = PBXGroup;
-			children = (
-				1F756F5A2DE57559000A94D9 /* Login_Navigation */,
-				1F756F712DE5755A000A94D9 /* Login_NavigationTests */,
-				1F756F7B2DE5755A000A94D9 /* Login_NavigationUITests */,
-				1F756F592DE57559000A94D9 /* Products */,
-				3BCE43DC007571ECBDEA07A2 /* Pods */,
-				0C83DAAFC91179C91CF78F32 /* Frameworks */,
+				1FAD7ADA2DF48C1D000438A8 /* Login_Navigation */,
+				1FAD7AF12DF48C1E000438A8 /* Login_NavigationTests */,
+				1FAD7AFB2DF48C1E000438A8 /* Login_NavigationUITests */,
+				1FAD7AD92DF48C1D000438A8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1F756F592DE57559000A94D9 /* Products */ = {
+		1FAD7AD92DF48C1D000438A8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F756F582DE57559000A94D9 /* Login_Navigation.app */,
-				1F756F6E2DE5755A000A94D9 /* Login_NavigationTests.xctest */,
-				1F756F782DE5755A000A94D9 /* Login_NavigationUITests.xctest */,
+				1FAD7AD82DF48C1D000438A8 /* Login_Navigation.app */,
+				1FAD7AEE2DF48C1E000438A8 /* Login_NavigationTests.xctest */,
+				1FAD7AF82DF48C1E000438A8 /* Login_NavigationUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		3BCE43DC007571ECBDEA07A2 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2DE85A9732AED7366561956B /* Pods-Login_Navigation.debug.xcconfig */,
-				58A0DC3BBA6C707BE7250779 /* Pods-Login_Navigation.release.xcconfig */,
-				632B9BEA1C9A135E30F9CB87 /* Pods-Login_Navigation-Login_NavigationUITests.debug.xcconfig */,
-				85378358C4682C4BE482E1C7 /* Pods-Login_Navigation-Login_NavigationUITests.release.xcconfig */,
-				55611A7C67B8426D033773E5 /* Pods-Login_NavigationTests.debug.xcconfig */,
-				7A88F721F890CD967C5972EE /* Pods-Login_NavigationTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1F756F572DE57559000A94D9 /* Login_Navigation */ = {
+		1FAD7AD72DF48C1D000438A8 /* Login_Navigation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F756F812DE5755A000A94D9 /* Build configuration list for PBXNativeTarget "Login_Navigation" */;
+			buildConfigurationList = 1FAD7B012DF48C1E000438A8 /* Build configuration list for PBXNativeTarget "Login_Navigation" */;
 			buildPhases = (
-				7AF66179D76A994CCE98EF76 /* [CP] Check Pods Manifest.lock */,
-				1F756F542DE57559000A94D9 /* Sources */,
-				1F756F552DE57559000A94D9 /* Frameworks */,
-				1F756F562DE57559000A94D9 /* Resources */,
-				62A9087C323746DE6085802F /* [CP] Embed Pods Frameworks */,
+				1FAD7AD42DF48C1D000438A8 /* Sources */,
+				1FAD7AD52DF48C1D000438A8 /* Frameworks */,
+				1FAD7AD62DF48C1D000438A8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				1F756F5A2DE57559000A94D9 /* Login_Navigation */,
+				1FAD7ADA2DF48C1D000438A8 /* Login_Navigation */,
 			);
 			name = Login_Navigation;
 			packageProductDependencies = (
-				57C96AF72DE6F9940047B45C /* FirebaseAI */,
-				57C96AF92DE6F9940047B45C /* FirebaseAnalytics */,
-				57C96AFB2DE6F9940047B45C /* FirebaseAnalyticsOnDeviceConversion */,
-				57C96AFD2DE6F9940047B45C /* FirebaseAnalyticsWithoutAdIdSupport */,
-				57C96AFF2DE6F9940047B45C /* FirebaseAppCheck */,
-				57C96B012DE6F9B10047B45C /* NaverThirdPartyLogin */,
-				1F86A7842DE72C7C003396E5 /* KakaoSDK */,
-				1F86A7862DE72C7C003396E5 /* KakaoSDKAuth */,
-				1F86A7882DE72C7C003396E5 /* KakaoSDKCert */,
-				1F86A78A2DE72C7C003396E5 /* KakaoSDKCertCore */,
-				1F86A78C2DE72C7C003396E5 /* KakaoSDKCommon */,
-				1F86A78E2DE72C7C003396E5 /* KakaoSDKFriend */,
-				1F86A7902DE72C7C003396E5 /* KakaoSDKFriendCore */,
-				1F86A7922DE72C7C003396E5 /* KakaoSDKNavi */,
-				1F86A7942DE72C7C003396E5 /* KakaoSDKShare */,
-				1F86A7962DE72C7C003396E5 /* KakaoSDKTalk */,
-				1F86A7982DE72C7C003396E5 /* KakaoSDKTemplate */,
-				1F86A79A2DE72C7C003396E5 /* KakaoSDKUser */,
-				1F86A79C2DE72D19003396E5 /* FirebaseAppDistribution-Beta */,
-				1F86A79E2DE72D19003396E5 /* FirebaseAuth */,
-				1F86A7A02DE72D19003396E5 /* FirebaseAuthCombine-Community */,
-				1F86A7A22DE72D19003396E5 /* FirebaseCore */,
-				1F86A7A42DE72D19003396E5 /* FirebaseCrashlytics */,
-				1F86A7A62DE72D19003396E5 /* FirebaseDatabase */,
-				1F86A7A82DE72D19003396E5 /* FirebaseDynamicLinks */,
-				1F86A7AA2DE72D19003396E5 /* FirebaseFirestore */,
-				1F86A7AC2DE72D19003396E5 /* FirebaseFirestoreCombine-Community */,
-				1F86A7AE2DE72D19003396E5 /* FirebaseFunctions */,
-				1F86A7B02DE72D19003396E5 /* FirebaseFunctionsCombine-Community */,
-				1F86A7B22DE72D19003396E5 /* FirebaseInAppMessaging-Beta */,
-				1F86A7B42DE72D19003396E5 /* FirebaseInstallations */,
-				1F86A7B62DE72D19003396E5 /* FirebaseMLModelDownloader */,
-				1F86A7B82DE72D19003396E5 /* FirebaseMessaging */,
-				1F86A7BA2DE72D19003396E5 /* FirebasePerformance */,
-				1F86A7BC2DE72D19003396E5 /* FirebaseRemoteConfig */,
-				1F86A7BE2DE72D19003396E5 /* FirebaseStorage */,
-				1F86A7C02DE72D19003396E5 /* FirebaseStorageCombine-Community */,
-				1F86A7C22DE72D19003396E5 /* FirebaseVertexAI */,
+				1FB8B69B2DF48E010080698D /* KakaoSDK */,
+				1FB8B69D2DF48E010080698D /* KakaoSDKAuth */,
+				1FB8B69F2DF48E010080698D /* KakaoSDKCert */,
+				1FB8B6A12DF48E010080698D /* KakaoSDKCertCore */,
+				1FB8B6A32DF48E010080698D /* KakaoSDKCommon */,
+				1FB8B6A52DF48E010080698D /* KakaoSDKFriend */,
+				1FB8B6A72DF48E010080698D /* KakaoSDKFriendCore */,
+				1FB8B6A92DF48E010080698D /* KakaoSDKNavi */,
+				1FB8B6AB2DF48E010080698D /* KakaoSDKShare */,
+				1FB8B6AD2DF48E010080698D /* KakaoSDKTalk */,
+				1FB8B6AF2DF48E010080698D /* KakaoSDKTemplate */,
+				1FB8B6B12DF48E010080698D /* KakaoSDKUser */,
+				1FB8B6B42DF48E470080698D /* NaverThirdPartyLogin */,
 			);
 			productName = Login_Navigation;
-			productReference = 1F756F582DE57559000A94D9 /* Login_Navigation.app */;
+			productReference = 1FAD7AD82DF48C1D000438A8 /* Login_Navigation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1F756F6D2DE5755A000A94D9 /* Login_NavigationTests */ = {
+		1FAD7AED2DF48C1E000438A8 /* Login_NavigationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F756F862DE5755A000A94D9 /* Build configuration list for PBXNativeTarget "Login_NavigationTests" */;
+			buildConfigurationList = 1FAD7B062DF48C1E000438A8 /* Build configuration list for PBXNativeTarget "Login_NavigationTests" */;
 			buildPhases = (
-				0D1B48E89671331264F4BAD9 /* [CP] Check Pods Manifest.lock */,
-				1F756F6A2DE5755A000A94D9 /* Sources */,
-				1F756F6B2DE5755A000A94D9 /* Frameworks */,
-				1F756F6C2DE5755A000A94D9 /* Resources */,
+				1FAD7AEA2DF48C1E000438A8 /* Sources */,
+				1FAD7AEB2DF48C1E000438A8 /* Frameworks */,
+				1FAD7AEC2DF48C1E000438A8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1F756F702DE5755A000A94D9 /* PBXTargetDependency */,
+				1FAD7AF02DF48C1E000438A8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				1F756F712DE5755A000A94D9 /* Login_NavigationTests */,
+				1FAD7AF12DF48C1E000438A8 /* Login_NavigationTests */,
 			);
 			name = Login_NavigationTests;
+			packageProductDependencies = (
+			);
 			productName = Login_NavigationTests;
-			productReference = 1F756F6E2DE5755A000A94D9 /* Login_NavigationTests.xctest */;
+			productReference = 1FAD7AEE2DF48C1E000438A8 /* Login_NavigationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1F756F772DE5755A000A94D9 /* Login_NavigationUITests */ = {
+		1FAD7AF72DF48C1E000438A8 /* Login_NavigationUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F756F892DE5755A000A94D9 /* Build configuration list for PBXNativeTarget "Login_NavigationUITests" */;
+			buildConfigurationList = 1FAD7B092DF48C1E000438A8 /* Build configuration list for PBXNativeTarget "Login_NavigationUITests" */;
 			buildPhases = (
-				CE446E92DFA5A5DB4B7CDB32 /* [CP] Check Pods Manifest.lock */,
-				1F756F742DE5755A000A94D9 /* Sources */,
-				1F756F752DE5755A000A94D9 /* Frameworks */,
-				1F756F762DE5755A000A94D9 /* Resources */,
-				1AE00327596867D7325AD2EF /* [CP] Embed Pods Frameworks */,
+				1FAD7AF42DF48C1E000438A8 /* Sources */,
+				1FAD7AF52DF48C1E000438A8 /* Frameworks */,
+				1FAD7AF62DF48C1E000438A8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1F756F7A2DE5755A000A94D9 /* PBXTargetDependency */,
+				1FAD7AFA2DF48C1E000438A8 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				1F756F7B2DE5755A000A94D9 /* Login_NavigationUITests */,
+				1FAD7AFB2DF48C1E000438A8 /* Login_NavigationUITests */,
 			);
 			name = Login_NavigationUITests;
+			packageProductDependencies = (
+			);
 			productName = Login_NavigationUITests;
-			productReference = 1F756F782DE5755A000A94D9 /* Login_NavigationUITests.xctest */;
+			productReference = 1FAD7AF82DF48C1E000438A8 /* Login_NavigationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1F756F502DE57559000A94D9 /* Project object */ = {
+		1FAD7AD02DF48C1D000438A8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1630;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					1F756F572DE57559000A94D9 = {
-						CreatedOnToolsVersion = 16.3;
+					1FAD7AD72DF48C1D000438A8 = {
+						CreatedOnToolsVersion = 16.4;
 					};
-					1F756F6D2DE5755A000A94D9 = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = 1F756F572DE57559000A94D9;
+					1FAD7AED2DF48C1E000438A8 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 1FAD7AD72DF48C1D000438A8;
 					};
-					1F756F772DE5755A000A94D9 = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = 1F756F572DE57559000A94D9;
+					1FAD7AF72DF48C1E000438A8 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 1FAD7AD72DF48C1D000438A8;
 					};
 				};
 			};
-			buildConfigurationList = 1F756F532DE57559000A94D9 /* Build configuration list for PBXProject "Login_Navigation" */;
+			buildConfigurationList = 1FAD7AD32DF48C1D000438A8 /* Build configuration list for PBXProject "Login_Navigation" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 1F756F4F2DE57559000A94D9;
+			mainGroup = 1FAD7ACF2DF48C1D000438A8;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				57C96AF52DE6F8C20047B45C /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
-				57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				1FB8B6B32DF48E470080698D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 1F756F592DE57559000A94D9 /* Products */;
+			productRefGroup = 1FAD7AD92DF48C1D000438A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1F756F572DE57559000A94D9 /* Login_Navigation */,
-				1F756F6D2DE5755A000A94D9 /* Login_NavigationTests */,
-				1F756F772DE5755A000A94D9 /* Login_NavigationUITests */,
+				1FAD7AD72DF48C1D000438A8 /* Login_Navigation */,
+				1FAD7AED2DF48C1E000438A8 /* Login_NavigationTests */,
+				1FAD7AF72DF48C1E000438A8 /* Login_NavigationUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1F756F562DE57559000A94D9 /* Resources */ = {
+		1FAD7AD62DF48C1D000438A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F756F6C2DE5755A000A94D9 /* Resources */ = {
+		1FAD7AEC2DF48C1E000438A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F756F762DE5755A000A94D9 /* Resources */ = {
+		1FAD7AF62DF48C1E000438A8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -412,125 +290,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		0D1B48E89671331264F4BAD9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Login_NavigationTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1AE00327596867D7325AD2EF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Login_Navigation-Login_NavigationUITests/Pods-Login_Navigation-Login_NavigationUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Login_Navigation-Login_NavigationUITests/Pods-Login_Navigation-Login_NavigationUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Login_Navigation-Login_NavigationUITests/Pods-Login_Navigation-Login_NavigationUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		62A9087C323746DE6085802F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Login_Navigation/Pods-Login_Navigation-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Login_Navigation/Pods-Login_Navigation-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Login_Navigation/Pods-Login_Navigation-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7AF66179D76A994CCE98EF76 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Login_Navigation-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CE446E92DFA5A5DB4B7CDB32 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Login_Navigation-Login_NavigationUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		1F756F542DE57559000A94D9 /* Sources */ = {
+		1FAD7AD42DF48C1D000438A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F756F6A2DE5755A000A94D9 /* Sources */ = {
+		1FAD7AEA2DF48C1E000438A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F756F742DE5755A000A94D9 /* Sources */ = {
+		1FAD7AF42DF48C1E000438A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -540,27 +315,27 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F756F702DE5755A000A94D9 /* PBXTargetDependency */ = {
+		1FAD7AF02DF48C1E000438A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F756F572DE57559000A94D9 /* Login_Navigation */;
-			targetProxy = 1F756F6F2DE5755A000A94D9 /* PBXContainerItemProxy */;
+			target = 1FAD7AD72DF48C1D000438A8 /* Login_Navigation */;
+			targetProxy = 1FAD7AEF2DF48C1E000438A8 /* PBXContainerItemProxy */;
 		};
-		1F756F7A2DE5755A000A94D9 /* PBXTargetDependency */ = {
+		1FAD7AFA2DF48C1E000438A8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F756F572DE57559000A94D9 /* Login_Navigation */;
-			targetProxy = 1F756F792DE5755A000A94D9 /* PBXContainerItemProxy */;
+			target = 1FAD7AD72DF48C1D000438A8 /* Login_Navigation */;
+			targetProxy = 1FAD7AF92DF48C1E000438A8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1F756F822DE5755A000A94D9 /* Debug */ = {
+		1FAD7B022DF48C1E000438A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2DE85A9732AED7366561956B /* Pods-Login_Navigation.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XMW27MNCKD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Login_Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -581,14 +356,14 @@
 			};
 			name = Debug;
 		};
-		1F756F832DE5755A000A94D9 /* Release */ = {
+		1FAD7B032DF48C1E000438A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 58A0DC3BBA6C707BE7250779 /* Pods-Login_Navigation.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XMW27MNCKD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Login_Navigation/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -609,7 +384,7 @@
 			};
 			name = Release;
 		};
-		1F756F842DE5755A000A94D9 /* Debug */ = {
+		1FAD7B042DF48C1E000438A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -661,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -672,7 +447,7 @@
 			};
 			name = Debug;
 		};
-		1F756F852DE5755A000A94D9 /* Release */ = {
+		1FAD7B052DF48C1E000438A8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -718,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -728,15 +503,14 @@
 			};
 			name = Release;
 		};
-		1F756F872DE5755A000A94D9 /* Debug */ = {
+		1FAD7B072DF48C1E000438A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 55611A7C67B8426D033773E5 /* Pods-Login_NavigationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.Login-NavigationTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -747,15 +521,14 @@
 			};
 			name = Debug;
 		};
-		1F756F882DE5755A000A94D9 /* Release */ = {
+		1FAD7B082DF48C1E000438A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A88F721F890CD967C5972EE /* Pods-Login_NavigationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mycompany.Login-NavigationTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -766,9 +539,8 @@
 			};
 			name = Release;
 		};
-		1F756F8A2DE5755A000A94D9 /* Debug */ = {
+		1FAD7B0A2DF48C1E000438A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 632B9BEA1C9A135E30F9CB87 /* Pods-Login_Navigation-Login_NavigationUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -783,9 +555,8 @@
 			};
 			name = Debug;
 		};
-		1F756F8B2DE5755A000A94D9 /* Release */ = {
+		1FAD7B0B2DF48C1E000438A8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 85378358C4682C4BE482E1C7 /* Pods-Login_Navigation-Login_NavigationUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -803,38 +574,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F756F532DE57559000A94D9 /* Build configuration list for PBXProject "Login_Navigation" */ = {
+		1FAD7AD32DF48C1D000438A8 /* Build configuration list for PBXProject "Login_Navigation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F756F842DE5755A000A94D9 /* Debug */,
-				1F756F852DE5755A000A94D9 /* Release */,
+				1FAD7B042DF48C1E000438A8 /* Debug */,
+				1FAD7B052DF48C1E000438A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F756F812DE5755A000A94D9 /* Build configuration list for PBXNativeTarget "Login_Navigation" */ = {
+		1FAD7B012DF48C1E000438A8 /* Build configuration list for PBXNativeTarget "Login_Navigation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F756F822DE5755A000A94D9 /* Debug */,
-				1F756F832DE5755A000A94D9 /* Release */,
+				1FAD7B022DF48C1E000438A8 /* Debug */,
+				1FAD7B032DF48C1E000438A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F756F862DE5755A000A94D9 /* Build configuration list for PBXNativeTarget "Login_NavigationTests" */ = {
+		1FAD7B062DF48C1E000438A8 /* Build configuration list for PBXNativeTarget "Login_NavigationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F756F872DE5755A000A94D9 /* Debug */,
-				1F756F882DE5755A000A94D9 /* Release */,
+				1FAD7B072DF48C1E000438A8 /* Debug */,
+				1FAD7B082DF48C1E000438A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F756F892DE5755A000A94D9 /* Build configuration list for PBXNativeTarget "Login_NavigationUITests" */ = {
+		1FAD7B092DF48C1E000438A8 /* Build configuration list for PBXNativeTarget "Login_NavigationUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F756F8A2DE5755A000A94D9 /* Debug */,
-				1F756F8B2DE5755A000A94D9 /* Release */,
+				1FAD7B0A2DF48C1E000438A8 /* Debug */,
+				1FAD7B0B2DF48C1E000438A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -842,15 +613,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+		1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.24.2;
+				minimumVersion = 2.24.4;
 			};
 		};
-		57C96AF52DE6F8C20047B45C /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
+		1FB8B6B32DF48E470080698D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios";
 			requirement = {
@@ -858,208 +629,75 @@
 				kind = branch;
 			};
 		};
-		57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.13.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		1F86A7842DE72C7C003396E5 /* KakaoSDK */ = {
+		1FB8B69B2DF48E010080698D /* KakaoSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDK;
 		};
-		1F86A7862DE72C7C003396E5 /* KakaoSDKAuth */ = {
+		1FB8B69D2DF48E010080698D /* KakaoSDKAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKAuth;
 		};
-		1F86A7882DE72C7C003396E5 /* KakaoSDKCert */ = {
+		1FB8B69F2DF48E010080698D /* KakaoSDKCert */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCert;
 		};
-		1F86A78A2DE72C7C003396E5 /* KakaoSDKCertCore */ = {
+		1FB8B6A12DF48E010080698D /* KakaoSDKCertCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCertCore;
 		};
-		1F86A78C2DE72C7C003396E5 /* KakaoSDKCommon */ = {
+		1FB8B6A32DF48E010080698D /* KakaoSDKCommon */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKCommon;
 		};
-		1F86A78E2DE72C7C003396E5 /* KakaoSDKFriend */ = {
+		1FB8B6A52DF48E010080698D /* KakaoSDKFriend */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKFriend;
 		};
-		1F86A7902DE72C7C003396E5 /* KakaoSDKFriendCore */ = {
+		1FB8B6A72DF48E010080698D /* KakaoSDKFriendCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKFriendCore;
 		};
-		1F86A7922DE72C7C003396E5 /* KakaoSDKNavi */ = {
+		1FB8B6A92DF48E010080698D /* KakaoSDKNavi */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKNavi;
 		};
-		1F86A7942DE72C7C003396E5 /* KakaoSDKShare */ = {
+		1FB8B6AB2DF48E010080698D /* KakaoSDKShare */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKShare;
 		};
-		1F86A7962DE72C7C003396E5 /* KakaoSDKTalk */ = {
+		1FB8B6AD2DF48E010080698D /* KakaoSDKTalk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKTalk;
 		};
-		1F86A7982DE72C7C003396E5 /* KakaoSDKTemplate */ = {
+		1FB8B6AF2DF48E010080698D /* KakaoSDKTemplate */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKTemplate;
 		};
-		1F86A79A2DE72C7C003396E5 /* KakaoSDKUser */ = {
+		1FB8B6B12DF48E010080698D /* KakaoSDKUser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 1F86A7832DE72C7C003396E5 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			package = 1FB8B69A2DF48E010080698D /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
 		};
-		1F86A79C2DE72D19003396E5 /* FirebaseAppDistribution-Beta */ = {
+		1FB8B6B42DF48E470080698D /* NaverThirdPartyLogin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseAppDistribution-Beta";
-		};
-		1F86A79E2DE72D19003396E5 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		1F86A7A02DE72D19003396E5 /* FirebaseAuthCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseAuthCombine-Community";
-		};
-		1F86A7A22DE72D19003396E5 /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		1F86A7A42DE72D19003396E5 /* FirebaseCrashlytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCrashlytics;
-		};
-		1F86A7A62DE72D19003396E5 /* FirebaseDatabase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDatabase;
-		};
-		1F86A7A82DE72D19003396E5 /* FirebaseDynamicLinks */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseDynamicLinks;
-		};
-		1F86A7AA2DE72D19003396E5 /* FirebaseFirestore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
-		};
-		1F86A7AC2DE72D19003396E5 /* FirebaseFirestoreCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFirestoreCombine-Community";
-		};
-		1F86A7AE2DE72D19003396E5 /* FirebaseFunctions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFunctions;
-		};
-		1F86A7B02DE72D19003396E5 /* FirebaseFunctionsCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseFunctionsCombine-Community";
-		};
-		1F86A7B22DE72D19003396E5 /* FirebaseInAppMessaging-Beta */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseInAppMessaging-Beta";
-		};
-		1F86A7B42DE72D19003396E5 /* FirebaseInstallations */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseInstallations;
-		};
-		1F86A7B62DE72D19003396E5 /* FirebaseMLModelDownloader */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMLModelDownloader;
-		};
-		1F86A7B82DE72D19003396E5 /* FirebaseMessaging */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseMessaging;
-		};
-		1F86A7BA2DE72D19003396E5 /* FirebasePerformance */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebasePerformance;
-		};
-		1F86A7BC2DE72D19003396E5 /* FirebaseRemoteConfig */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseRemoteConfig;
-		};
-		1F86A7BE2DE72D19003396E5 /* FirebaseStorage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseStorage;
-		};
-		1F86A7C02DE72D19003396E5 /* FirebaseStorageCombine-Community */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseStorageCombine-Community";
-		};
-		1F86A7C22DE72D19003396E5 /* FirebaseVertexAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseVertexAI;
-		};
-		57C96AF72DE6F9940047B45C /* FirebaseAI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAI;
-		};
-		57C96AF92DE6F9940047B45C /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		57C96AFB2DE6F9940047B45C /* FirebaseAnalyticsOnDeviceConversion */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsOnDeviceConversion;
-		};
-		57C96AFD2DE6F9940047B45C /* FirebaseAnalyticsWithoutAdIdSupport */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalyticsWithoutAdIdSupport;
-		};
-		57C96AFF2DE6F9940047B45C /* FirebaseAppCheck */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF62DE6F9940047B45C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAppCheck;
-		};
-		57C96B012DE6F9B10047B45C /* NaverThirdPartyLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57C96AF52DE6F8C20047B45C /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
+			package = 1FB8B6B32DF48E470080698D /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios" */;
 			productName = NaverThirdPartyLogin;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 1F756F502DE57559000A94D9 /* Project object */;
+	rootObject = 1FAD7AD02DF48C1D000438A8 /* Project object */;
 }

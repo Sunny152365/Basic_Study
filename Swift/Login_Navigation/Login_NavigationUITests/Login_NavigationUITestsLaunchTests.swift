@@ -2,7 +2,7 @@
 //  Login_NavigationUITestsLaunchTests.swift
 //  Login_NavigationUITests
 //
-//  Created by 최원일 on 5/27/25.
+//  Created by 최원일 on 6/8/25.
 //
 
 import XCTest

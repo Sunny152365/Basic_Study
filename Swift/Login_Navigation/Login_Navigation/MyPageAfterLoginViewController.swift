@@ -28,7 +28,17 @@ class MyPageAfterLoginViewController: UIViewController {
 
     @IBAction func initialButton(_ sender: UIButton) {
         // 초기 화면(1번째 화면) 으로
-        self.navigationController?.popToRootViewController(animated: true)
+        // self.navigationController?.popToRootViewController(animated: true)
+        // 예: 루트 뷰컨트롤러를 로그인 화면으로 변경
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? UIWindowSceneDelegate,
+           let window = sceneDelegate.window ?? (sceneDelegate as? SceneDelegate)?.window {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "MainPageViewController")
+            window.rootViewController = loginVC
+            window.makeKeyAndVisible()
+        }
     }
     
 }
