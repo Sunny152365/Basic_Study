@@ -5,10 +5,13 @@
 //  Created by 최원일 on 5/7/25.
 //
 
+// LoginViewController.swift
+
 import UIKit
 import AuthenticationServices
 import KakaoSDKAuth
 import KakaoSDKUser
+import os
 
 struct LoginResponse: Decodable {
     let success: Bool
@@ -29,9 +32,10 @@ class LoginPageViewController: UIViewController {
     private var isNaverLoginInProgress = false
 
     private let naverClientID = "KhS0SAhDdsySi5rd5bRf"
-    // ngrok 주소 사용해야함
-    private let naverRedirectURI = "https://3371-182-224-45-138.ngrok-free.app/api/naver/callback/"
+    private let naverRedirectURI = "https://4fca-182-224-45-138.ngrok-free.app/api/naver/callback/"
     private let naverCallbackScheme = "naverKhS0SAhDdsySi5rd5bRf"
+
+    private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "LoginPage")
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -107,7 +111,10 @@ class LoginPageViewController: UIViewController {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("❌ Network error: \(error.localizedDescription)")
+                self.logger.error("Network error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showAlert(title: "로그인 실패", message: "네트워크 오류가 발생했습니다.")
+                }
                 return
             }
             guard let data = data else {
@@ -116,14 +123,39 @@ class LoginPageViewController: UIViewController {
                 }
                 return
             }
-            self.saveResponseToFile(data)
+
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(LoginResponse.self, from: data)
+                if response.success {
+                    UserDefaults.standard.set(response.token, forKey: "access_token")
+                    UserDefaults.standard.set(response.refresh, forKey: "refresh_token")
+                    DispatchQueue.main.async {
+                        self.navigateToMainScreen()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.showAlert(title: "로그인 실패", message: "이메일 또는 비밀번호가 올바르지 않습니다.")
+                    }
+                }
+            } catch {
+                self.logger.error("JSON 파싱 오류: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showAlert(title: "로그인 실패", message: "응답 파싱에 실패했습니다.")
+                }
+            }
         }.resume()
     }
+
+    // MARK: - 카카오 로그인
 
     @objc func kakaoLoginViewTapped() {
         let completion: (OAuthToken?, Error?) -> Void = { token, error in
             if let error = error {
-                print("카카오 로그인 실패: \(error.localizedDescription)")
+                self.logger.error("카카오 로그인 실패: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showAlert(title: "카카오 로그인 실패", message: error.localizedDescription)
+                }
             } else if let token = token {
                 self.loginWithKakaoAccessToken(token.accessToken)
             }
@@ -146,13 +178,15 @@ class LoginPageViewController: UIViewController {
 
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                print("❌ 카카오 로그인 응답 없음")
+                self.logger.error("카카오 로그인 응답 없음")
+                DispatchQueue.main.async {
+                    self.showAlert(title: "카카오 로그인 실패", message: "서버 응답이 없습니다.")
+                }
                 return
             }
-            
-            // 🧪 서버 응답 확인
-               print("📦 서버 응답: ", String(data: data, encoding: .utf8) ?? "응답 디코딩 실패")
-            
+
+            self.logger.info("서버 응답: \(String(data: data, encoding: .utf8) ?? "응답 디코딩 실패")")
+
             do {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(LoginResponse.self, from: data)
@@ -162,10 +196,15 @@ class LoginPageViewController: UIViewController {
                     self.navigateToMainScreen()
                 }
             } catch {
-                print("❌ 카카오 로그인 JSON 파싱 오류: \(error.localizedDescription)")
+                self.logger.error("카카오 로그인 JSON 파싱 오류: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.showAlert(title: "카카오 로그인 실패", message: "서버 응답 파싱 오류")
+                }
             }
         }.resume()
     }
+
+    // MARK: - 네이버 로그인
 
     @objc func naverLoginViewTapped() {
         guard !isNaverLoginInProgress else { return }
@@ -180,6 +219,7 @@ class LoginPageViewController: UIViewController {
 
         guard let authURL = URL(string: authURLString) else {
             isNaverLoginInProgress = false
+            self.logger.error("네이버 로그인 URL 생성 실패")
             return
         }
 
@@ -188,75 +228,38 @@ class LoginPageViewController: UIViewController {
             self.isNaverLoginInProgress = false
 
             if let error = error {
-                print("❌ 네이버 로그인 에러:", error.localizedDescription)
-                self.showAlert(title: "로그인 실패", message: "네이버 로그인 중 오류가 발생했습니다.")
+                self.logger.error("네이버 로그인 에러: \(error.localizedDescription)")
+                self.showAlert(title: "네이버 로그인 실패", message: "로그인 중 오류가 발생했습니다.")
                 return
             }
 
             guard let callbackURL = callbackURL else {
-                print("❌ 콜백 URL이 없습니다.")
-                self.showAlert(title: "로그인 실패", message: "콜백 URL이 없습니다.")
+                self.logger.error("네이버 로그인 콜백 URL 누락")
+                self.showAlert(title: "네이버 로그인 실패", message: "콜백 URL이 없습니다.")
                 return
             }
 
-            print("🟢 네이버 로그인 콜백 URL: \(callbackURL.absoluteString)")
-
-            if let components = URLComponents(url: callbackURL, resolvingAgainstBaseURL: false) {
-                print("쿼리 파라미터:")
-                components.queryItems?.forEach { item in
-                    print(" - \(item.name): \(item.value ?? "nil")")
-                }
-
-                if let code = components.queryItems?.first(where: { $0.name == "code" })?.value,
-                   let stateReceived = components.queryItems?.first(where: { $0.name == "state" })?.value {
-                    print("✅ code: \(code), state: \(stateReceived)")
-                    self.fetchNaverToken(withCode: code, state: stateReceived)
-                } else {
-                    print("❌ code 또는 state 파라미터 누락")
-                    self.showAlert(title: "로그인 실패", message: "인증 정보(code 또는 state)가 없습니다.")
+            if let components = URLComponents(url: callbackURL, resolvingAgainstBaseURL: false),
+               let token = components.queryItems?.first(where: { $0.name == "token" })?.value,
+               let refresh = components.queryItems?.first(where: { $0.name == "refresh" })?.value {
+                UserDefaults.standard.set(token, forKey: "access_token")
+                UserDefaults.standard.set(refresh, forKey: "refresh_token")
+                DispatchQueue.main.async {
+                    self.navigateToMainScreen()
                 }
             } else {
-                print("❌ 콜백 URL 파싱 실패")
-                self.showAlert(title: "로그인 실패", message: "콜백 URL을 파싱하지 못했습니다.")
+                self.logger.error("토큰 파라미터 누락")
+                self.showAlert(title: "네이버 로그인 실패", message: "토큰 정보를 받지 못했습니다.")
             }
         }
 
         naverAuthSession?.presentationContextProvider = self
-        naverAuthSession?.prefersEphemeralWebBrowserSession = true
+        //  이전에 로그인한 사용자에 대해 자동 로그인 효과 주기 (false일떄)
+        naverAuthSession?.prefersEphemeralWebBrowserSession = false
         naverAuthSession?.start()
     }
 
-    private func fetchNaverToken(withCode code: String, state: String) {
-        let tokenURL = URL(string: "https://3371-182-224-45-138.ngrok-free.app/api/naver/token/")!
-        // let tokenURL = URL(string: "http://192.168.0.16:8000/api/naver/token/")!
-        var request = URLRequest(url: tokenURL)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        let body = ["code": code, "state": state]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
-
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {
-                DispatchQueue.main.async {
-                    self.showAlert(title: "로그인 실패", message: "서버 응답 없음")
-                }
-                return
-            }
-            do {
-                let decoder = JSONDecoder()
-                let response = try decoder.decode(LoginResponse.self, from: data)
-                UserDefaults.standard.set(response.token, forKey: "access_token")
-                UserDefaults.standard.set(response.refresh, forKey: "refresh_token")
-                DispatchQueue.main.async {
-                    self.navigateToMainScreen()
-                }
-            } catch {
-                DispatchQueue.main.async {
-                    self.showAlert(title: "로그인 실패", message: "응답 파싱 오류")
-                }
-            }
-        }.resume()
-    }
+    // MARK: - 네비게이션
 
     private func navigateToMainScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -269,11 +272,7 @@ class LoginPageViewController: UIViewController {
         }
     }
 
-    private func saveResponseToFile(_ data: Data) {
-        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        let fileURL = documentDirectory.appendingPathComponent("loginResponse.json")
-        try? data.write(to: fileURL)
-    }
+    // MARK: - 유틸리티
 
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
@@ -284,12 +283,15 @@ class LoginPageViewController: UIViewController {
     }
 
     @objc func handleAppleLogin() {
-        // 애플 로그인 처리 필요 시 구현
+        // 애플 로그인 필요시 구현
     }
-    
+
     @IBAction func BackButton2(_ sender: UIButton) {
-        // 현재 뷰에서, 이전 뷰로 돌아가고 싶을 때
-        self.navigationController?.popViewController(animated: true)
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
 

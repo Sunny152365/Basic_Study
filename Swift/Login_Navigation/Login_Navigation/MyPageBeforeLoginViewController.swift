@@ -25,7 +25,11 @@ class MyPageBeforeViewController: UIViewController {
 
     @IBAction func BackButton(_ sender: UIButton) {
         // 현재 뷰에서, 이전 뷰로 돌아가고 싶을 때
-        self.navigationController?.popViewController(animated: true)
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
 }

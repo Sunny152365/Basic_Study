@@ -24,30 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         print("📦 URL 수신: \(url.absoluteString)")
 
-        // 딥링크: naverapp://login?access=xxx&refresh=yyy 형태 처리
-        if url.scheme == "naverapp",
-           url.host == "login",
-           let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-           let queryItems = components.queryItems {
-
-            let accessToken = queryItems.first(where: { $0.name == "access" })?.value
-            let refreshToken = queryItems.first(where: { $0.name == "refresh" })?.value
-
-            print("🟢 Access Token: \(accessToken ?? "없음")")
-            print("🟢 Refresh Token: \(refreshToken ?? "없음")")
-
-            if let accessToken = accessToken, let refreshToken = refreshToken {
-                UserDefaults.standard.set(accessToken, forKey: "access_token")
-                UserDefaults.standard.set(refreshToken, forKey: "refresh_token")
-
-                // TODO: 로그인 성공 후 화면 전환 등 원하는 작업 수행
-            } else {
-                print("⚠️ 토큰 정보가 불완전합니다.")
-            }
-            return true
-        }
-
-        // 카카오 로그인 URL 처리
+        // ✅ 카카오 로그인 URL 처리
         if AuthApi.isKakaoTalkLoginUrl(url) {
             return AuthController.handleOpenUrl(url: url)
         }
