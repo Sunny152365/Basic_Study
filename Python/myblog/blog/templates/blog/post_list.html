@@ -1,0 +1,9 @@
+<h1>블로그 글 목록</h1>
+<ul>
+  {% for post in posts %}
+    <li>
+      <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+      - {{ post.created_at }}
+    </li>
+  {% endfor %}
+</ul>
