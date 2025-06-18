@@ -1,4 +1,28 @@
-<h1>{{ post.title }}</h1>
-<p>{{ post.content }}</p>
-<p><small>{{ post.created_at }}</small></p>
-<a href="{% url 'post_list' %}">← 목록으로</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <p>작성일: {{ post.created_at|date:"Y-m-d H:i" }}</p>
+    <hr>
+
+    <h3>댓글 목록</h3>
+    {% for comment in comments %}
+        <p><strong>{{ comment.author }}</strong>: {{ comment.text }}</p>
+    {% empty %}
+        <p>댓글이 없습니다.</p>
+    {% endfor %}
+
+    <h3>댓글 작성</h3>
+    <form method="post" action="{% url 'post_detail' post.pk %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">댓글 달기</button>
+    </form>
+
+    <p><a href="{% url 'post_list' %}">← 글 목록으로 돌아가기</a></p>
+</body>
+</html>

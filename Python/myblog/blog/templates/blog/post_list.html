@@ -1,9 +1,36 @@
-<h1>블로그 글 목록</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>블로그 글 목록</title>
+</head>
+<body>
+    <h1>블로그 글 목록</h1>
+    <a href="{% url 'post_new' %}">새 글 쓰기</a>
+    <ul>
+        {% for post in posts %}
+        <li>
+            <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+            ({{ post.created_at|date:"Y-m-d H:i" }})
+        </li>
+        {% empty %}
+        <li>글이 없습니다.</li>
+        {% endfor %}
+    </ul>
+    <h2>댓글</h2>
+
 <ul>
-  {% for post in posts %}
-    <li>
-      <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
-      - {{ post.created_at }}
-    </li>
-  {% endfor %}
+    {% for comment in post.comments.all %}
+    <li><strong>{{ comment.author }}</strong>: {{ comment.content }}</li>
+    {% empty %}
+    <li>댓글이 없습니다.</li>
+    {% endfor %}
 </ul>
+
+<h3>댓글 달기</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ comment_form.as_p }}
+    <button type="submit">댓글 작성</button>
+</form>
+</body>
+</html>
