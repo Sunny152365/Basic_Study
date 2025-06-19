@@ -17,8 +17,10 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from chat.views import home  # 👈 이 줄 추가
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/', include('chat.urls')),
+    path('', home),  # 👈 루트 경로 등록
 ]

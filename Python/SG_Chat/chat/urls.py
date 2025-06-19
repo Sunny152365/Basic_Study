@@ -9,3 +9,4 @@ router.register(r'messages', MessageViewSet)
 urlpatterns = [
     path('', include(router.urls)),
 ]
+# WebSocket은 asgi.py에서 따로 관리하고, REST API는 urls.py에서 관리하니까 구분해서 생각하자.

@@ -29,11 +29,31 @@ class ChatRoomViewSet(viewsets.ModelViewSet):
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-    permission_classes = [AllowAny]
+    permission_classes = [AllowAny]  # 추후 IsAuthenticated로 변경 가능
 
     def perform_create(self, serializer):
         serializer.save(sender=self.request.user)
+
+    def list(self, request, *args, **kwargs):
+        room_id = request.query_params.get('room')
+        if not room_id:
+            return Response({"error": "room ID is required."}, status=400)
+
+        messages = Message.objects.filter(room_id=room_id).order_by('created_at')
+
+        # 읽지 않은 메시지에 대해 read_by에 사용자 추가
+        for message in messages:
+            if request.user.is_authenticated and request.user not in message.read_by.all():
+                message.read_by.add(request.user)
+
+        serializer = self.get_serializer(messages, many=True)
+        return Response(serializer.data)
+
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("Welcome to the chat server!")
+
 
 # ChatRoomViewSet
 # 채팅방 조회 / 생성 / 참가 기능 (POST /chatrooms/<id>/join/)

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',  # DRF를 설치했으면
     'chat',            # 우리의 앱
+    'channels',        # channels 앱 추가
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,17 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# 프로젝트 통신 관련 설정들 (가장 아래쪽)
+ASGI_APPLICATION = 'config.asgi.application'
+# 프로젝트가 settings의 위치 config폴더에 따라 config.asgi.applicationd이 맞음
+
+# Channels layer 설정 (Redis 연결)
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}

@@ -8,20 +8,25 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/asgi/
 """
 
 # config/asgi.py
-
 import os
-from django.core.asgi import get_asgi_application
-from channels.routing import ProtocolTypeRouter, URLRouter
+import django
 from channels.auth import AuthMiddlewareStack
-import chat.routing  # chat 앱이 있다면 이쪽에 routing.py 있어야 함
+from channels.routing import ProtocolTypeRouter, URLRouter
+from django.core.asgi import get_asgi_application
+import chat.routing
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+django.setup()
+
+django_asgi_app = get_asgi_application()
 
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(),
-    "websocket": AuthMiddlewareStack(
+    "http": django_asgi_app,  # HTTP 요청은 기존 Django가 처리 get_asgi_application() -> django_asgi_app 한 번만 호출해서 재사용
+    "websocket": AuthMiddlewareStack(  # WebSocket 요청은 Channels가 처리, 인증 미들웨어 포함
         URLRouter(
             chat.routing.websocket_urlpatterns
         )
     ),
 })
+
+
