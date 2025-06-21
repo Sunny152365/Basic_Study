@@ -19,10 +19,21 @@ class MessageSerializer(serializers.ModelSerializer):
 class ChatRoomSerializer(serializers.ModelSerializer):
     participants = UserSerializer(many=True, read_only=True)
     messages = MessageSerializer(many=True, read_only=True)
+    lastMessage = serializers.SerializerMethodField()
+    lastMessageTime = serializers.SerializerMethodField()
 
     class Meta:
         model = ChatRoom
-        fields = ['id', 'participants', 'messages', 'created_at']
+        fields = ['id', 'participants', 'messages', 'created_at', 'lastMessage', 'lastMessageTime']
+
+    def get_lastMessage(self, obj):
+        last_msg = obj.messages.last()
+        return last_msg.content if last_msg else None
+
+    def get_lastMessageTime(self, obj):
+        last_msg = obj.messages.last()
+        return last_msg.created_at.isoformat() if last_msg else None
+
 
 # UserSerializer
 # 유저 ID, 이름만 노출

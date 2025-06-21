@@ -137,3 +137,5 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+ALLOWED_HOSTS = ['*']  # 개발용은 이렇게 두는 게 편함
