@@ -8,9 +8,9 @@
 // 모델
 import Foundation
 
-struct ChatRoom {
+struct ChatRoom: Decodable {
     let id: String
-    let participants: [String] // username 목록
+    let participants: [String]
     let lastMessage: String?
     let lastMessageTime: Date
 }

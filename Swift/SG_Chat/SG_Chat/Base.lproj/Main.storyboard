@@ -20,6 +20,16 @@
                                 <rect key="frame" x="16" y="289" width="404" height="224"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatRoom" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uYf-df-QJe" customClass="ChatRoom">
+                                        <rect key="frame" x="0.0" y="50" width="404" height="44.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uYf-df-QJe" id="o9h-hn-8nW">
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="44.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jLz-QW-EF2"/>
