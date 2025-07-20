@@ -1,0 +1,165 @@
+print(type(4 / 2))
+
+
+# 구별선 -----------------------------------------------------------
+def my_function():
+    x = "코드잇"
+    x = "을지로"
+
+
+# 구별선 -----------------------------------------------------------
+my_function()
+print(x)
+
+
+# 거스름돈 (위에는 사이트 정답(가독성 좋음), 아래는 내가 낸 정답)
+# 구별선 -----------------------------------------------------------
+def calculate_change(payment, cost):
+    change = payment - cost  # 거스름돈 총액
+
+    fifty_count = change // 50000  # 50,000원 지폐
+    ten_count = (change % 50000) // 10000  # 10,000원 지폐
+    five_count = (change % 10000) // 5000  # 5,000원 지폐
+    one_count = (change % 5000) // 1000  # 1,000원 지폐
+
+    # 답 출력
+    print("50000원 지폐: {}장".format(fifty_count))
+    print("10000원 지폐: {}장".format(ten_count))
+    print("5000원 지폐: {}장".format(five_count))
+    print("1000원 지폐: {}장".format(one_count))
+
+
+# 테스트 코드
+calculate_change(100000, 33000)
+print()
+calculate_change(500000, 378000)
+
+
+# 구별선 -----------------------------------------------------------
+def calculate_change(payment, cost):
+    # num 대신 change라는 잔돈 변수 사용이 더 효율
+    num = payment - cost
+    count = num // 50000
+    num %= 50000
+    print("50000원 지폐: {}장".format(count))
+    count = num // 10000
+    num %= 10000
+    print("10000원 지폐: {}장".format(count))
+    count = num // 5000
+    num %= 5000
+    print("5000원 지폐: {}장".format(count))
+    count = num // 1000
+    num %= 1000
+    print("1000원 지폐: {}장".format(count))
+
+# 테스트 코드
+calculate_change(100000, 33000)
+print()
+calculate_change(500000, 378000)
+
+
+# 택이의 우승상금 두 코드 차이 비교 및 확인(위에는 내가 처음 생각한 것(오답), 아래는 정답)
+# 구별선 -----------------------------------------------------------
+AP_MONEY = 1100000000
+MONEY = 50000000
+YEAR = 1988
+now_year = 2016
+total_money = 0
+
+def bank(MONEY):
+    diff_year = now_year - YEAR
+    while diff_year != 0:
+        total_money = MONEY * (1.12)
+        total_money += total_money
+        diff_year -= 1
+    return total_money
+        
+bank(MONEY)
+if MONEY > AP_MONEY:
+    print("{}원 차이로 동일 아저씨 말씀이 맞습니다.".format(MONEY-AP_MONEY))
+elif MONEY < AP_MONEY:
+    print("{}원 차이로 미란 아주머니 말씀이 맞습니다.".format(AP_MONEY-MONEY))
+
+
+# 구별선 -----------------------------------------------------------
+AP_MONEY = 1100000000  # 아파트 가격
+MONEY = 50000000       # 은행 예치금
+YEAR = 1988
+now_year = 2016
+
+def bank(principal):
+    diff_year = now_year - YEAR
+    total_money = principal  # 초기 금액
+    while diff_year > 0: # 원
+        total_money *= 1.12  # 매년 12% 복리
+        diff_year -= 1
+    return total_money
+
+final_money = bank(MONEY)
+
+if final_money > AP_MONEY:
+    print("{:.0f}원 차이로 동일 아저씨 말씀이 맞습니다.".format(final_money - AP_MONEY))
+elif final_money < AP_MONEY:
+    print("{:.0f}원 차이로 미란 아주머니 말씀이 맞습니다.".format(AP_MONEY - final_money))
+else:
+    print("두 분 말씀 모두 맞습니다!")
+
+
+# 구구단 만들기 (주석 부분을 생각하지 못함)
+# 구별선 -----------------------------------------------------------
+i = 1
+j = 1
+
+while i <= 9:
+    j = 1 #네가 헷갈린 이유는 내부 루프가 끝난 후 변수 상태가 유지된다는 사실 때문이야.
+          # 조건이 False가 되면 빠져나오지만 변수는 그대로 남아있음.
+          # 그래서 내부 루프 진입 전에 j를 매번 리셋해야 함.
+    while j <= 9:
+        print("{} * {} = {}".format(i,j,i*j))
+        j += 1
+    i += 1
+
+
+# 피보나치 수열(1,2 코드 내가 만든 것, 3번째 코드 정답)
+# 구별선 -----------------------------------------------------------
+i = 1
+sum = 1
+total = 0
+
+while i <= 50:
+    total += sum
+    print(total)
+    sum += sum
+    i += 1
+
+
+# 구별선 -----------------------------------------------------------
+i = 1
+sum = 1
+
+while i <= 50:
+    print(total)
+    sum += sum
+    i += 1
+
+
+# 구별선 -----------------------------------------------------------
+i = 1
+a, b = 1, 1  # 피보나치 초기값
+while i <= 50:
+    print(a)        # 현재 값 출력
+    a, b = b, a + b # 다음 값으로 업데이트
+    i += 1
+
+
+# 구별선 -----------------------------------------------------------
+previous = 0
+current = 1
+i = 1
+
+while i <= 50:
+    print(current)
+    temp = previous  # previous를 임시 보관소 temp에 저장
+    previous = current
+    current = current + temp  # temp에는 기존 previous 값이 저장돼 있음
+    i += 1
